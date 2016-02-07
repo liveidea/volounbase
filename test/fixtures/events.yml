@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+event_one:
   note: MyString
   start_date: 2016-02-07 14:18:15
-  end_date: 2016-02-07 14:18:15
+  end_date: 2016-03-07 14:18:15
 
-two:
+event_two:
   note: MyString
   start_date: 2016-02-07 14:18:15
-  end_date: 2016-02-07 14:18:15
+  end_date: 2016-06-07 14:18:15
