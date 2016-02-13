@@ -24,8 +24,8 @@
     %br/
     = f.password_field :current_password, autocomplete: "off"
   .actions
-    = f.submit "Update"
+    = f.submit "Update", :class=>"btn btn-primary bg-green"
 %h3 Cancel my account
 %p
-  Unhappy? #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete}
+  Unhappy? #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, :class=>"btn btn-outline green"}
 = link_to "Back", :back
