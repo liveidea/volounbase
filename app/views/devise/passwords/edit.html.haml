@@ -15,5 +15,5 @@
     %br/
     = f.password_field :password_confirmation, autocomplete: "off"
   .actions
-    = f.submit "Change my password"
+    = f.submit "Change my password", :class=>"btn btn-primary bg-green"
 = render "devise/shared/links"
