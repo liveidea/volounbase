@@ -56,6 +56,7 @@ Rails.application.routes.draw do
   #   end
 
   resources :projects do
-      get :list, on: :collection
+    get :list, on: :collection
+    resources :events
   end
 end
