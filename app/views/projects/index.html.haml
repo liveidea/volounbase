@@ -1,7 +1,9 @@
 .container
   %h1 All projects
   - @projects.each do |project|
-    .clearfix
+    .clearfix.py-1
+      .col.col-3.px2
+        %img{:alt => "", :src => project.cover.url(:medium)}/
       .px2.col.col-1
         = project.user_id
       .px2.col.col-3

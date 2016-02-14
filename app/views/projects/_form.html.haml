@@ -8,6 +8,9 @@
         - @project.errors.full_messages.each do |message|
           %li= message
   .field-row.field
+    = f.label :cover
+    = f.file_field :cover, :required => true
+  .field-row.field
     = f.label :title
     %br/
     = f.text_field :title, :required => true

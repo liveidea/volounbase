@@ -1,8 +1,8 @@
 .container
   %p#notice= notice
   .clearfix
-    .col.col-3
-      / %img{:alt => "", :src => @project.avatar}/
+    .col.col-3.px2
+      %img{:alt => "", :src => @project.cover.url(:medium)}/
     .col.col-9
       %div
         %strong Title:
