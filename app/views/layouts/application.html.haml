@@ -10,19 +10,8 @@
     .container
       %p.notice= notice
       %p.alert= alert
-  .page-header
-    .container.py2.border-bottom
-      .mx-2
-        %a.btn.button-narrow{:href => "/"} Home
-        - if user_signed_in?
-          = link_to 'Projects', projects_path, :class=>"btn green"
-        .right
-          - if user_signed_in?
-            = link_to 'Edit registration', edit_user_registration_path, :class=>"btn green"
-            = link_to 'Logout', destroy_user_session_path, :method => :delete, :class=>"btn green"
-          - else
-            = link_to 'Login', new_user_session_path, :class=>"btn green"
-            = link_to 'Register', new_user_registration_path, :class=>"btn btn-outline green"
+  = render 'global/header'
   .page-main
     .container
       = yield
+  = render 'global/footer'

@@ -1,14 +1,20 @@
 class ProjectsController < ApplicationController
-    # validates :title, presence: true
+    before_action :authenticate_user!
     before_action :set_project, only: [:show, :edit, :update, :destroy]
-
+    
     respond_to :html
 
     def index
         @projects = Project.all
-        respond_with(@projects)
+        respond_with(@projects)  
     end 
 
+    # Uer owner list
+    def list
+        @user = current_user
+        @projects = Project.where(user:current_user)
+        respond_with(@projects)  
+    end
 
     def show
         respond_with(@project)
@@ -24,9 +30,10 @@ class ProjectsController < ApplicationController
     end
 
     def create
-    @project = Project.new(project_params)
-    @project.save
-    respond_with(@project)
+        @project = Project.new(project_params)
+        @project.user_id = current_user.id
+        @project.save
+        respond_with(@project)
     end
 
     def update
@@ -35,8 +42,8 @@ class ProjectsController < ApplicationController
     end  
 
     def destroy
-    @project.destroy
-    respond_with(@project)
+        @project.destroy
+        respond_with(@project)
     end
 
     private

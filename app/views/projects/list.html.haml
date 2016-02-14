@@ -1,5 +1,5 @@
 .container
-  %h1 All projects
+  %h1 My projects
   - @projects.each do |project|
     .clearfix
       .px2.col.col-1
@@ -16,8 +16,6 @@
           %br/
           = link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' }
           %br/
-
-    %hr/
 %br/
 .panel-bottom.bg-white.py2.border-top
   .container.white
