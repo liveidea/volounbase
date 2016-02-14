@@ -16,13 +16,16 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
-    @event.save
-    redirect_to [:edit, @project, @event]
+    if @event.save
+      redirect_to [:edit, @project, @event], notice: 'Event was successfully created.'
+    else
+      render :new
+    end
   end
 
   def update
     @event.update(event_params)
-    redirect_to [:edit, @project, @event]
+    render :edit
   end
 
   def destroy
@@ -40,7 +43,7 @@ class EventsController < ApplicationController
     end
 
     def event_params
-      params.require(:event).permit(:note, :start_date, :end_date)
+      params.require(:event).permit(:note, :start_date, :end_date, :status)
     end
 
 end
