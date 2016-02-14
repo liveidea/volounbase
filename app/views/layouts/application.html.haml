@@ -15,8 +15,7 @@
       .mx-2
         %a.btn.button-narrow{:href => "/"} Home
         - if user_signed_in?
-          %a.btn.button-narrow{:href => "#"}
-            Projects
+          = link_to 'Projects', projects_path, :class=>"btn green"
         .right
           - if user_signed_in?
             = link_to 'Edit registration', edit_user_registration_path, :class=>"btn green"
