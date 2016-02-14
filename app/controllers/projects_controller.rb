@@ -6,14 +6,14 @@ class ProjectsController < ApplicationController
 
     def index
         @projects = Project.all
-        respond_with(@books)  
+        respond_with(@projects)  
     end 
 
     # Uer owner list
     def list
         @user = current_user
         @projects = Project.where(user:current_user)
-        respond_with(@books)  
+        respond_with(@projects)  
     end
 
     def show
