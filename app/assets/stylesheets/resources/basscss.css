@@ -177,10 +177,10 @@ hr {
   opacity: .5;
 }
 
-.field:read-only:not(select),
+/*.field:read-only:not(select),
 .field.is-read-only {
   background-color: rgba(0,0,0,.125);
-}
+}*/
 
 
 .field.is-success {
