@@ -6,14 +6,13 @@ class ProjectsController < ApplicationController
 
     def index
         @projects = Project.all
-        respond_with(@projects)  
+        respond_with(@projects)
     end 
 
-    # Uer owner list
+    # User owner list
     def list
-        @user = current_user
         @projects = Project.where(user:current_user)
-        respond_with(@projects)  
+        respond_with(@projects)
     end
 
     def show
@@ -31,7 +30,7 @@ class ProjectsController < ApplicationController
 
     def create
         @project = Project.new(project_params)
-        @project.user_id = current_user.id
+        @project.user = current_user
         @project.save
         respond_with(@project)
     end
