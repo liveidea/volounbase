@@ -3,7 +3,7 @@
 .form-field {
 	margin: 0px 0px 15px 0;
 	border: 0px;
-
+	background-color: #fff;
 	label {
 		color: #7f8c8d;
 	}
@@ -18,8 +18,19 @@ body {
 	font-weight: 500
 }
 
+body,
+html {
+	height: 100%;
+}
 .page-main {
 	padding: 100px 0px 40px 0px;
+	min-height: 100%;
+	margin-bottom: -25px;
+	&:after {
+		display: block;
+		height: 25px;
+		content: '';
+	}
 }
 // Projects
 .project-item {
