@@ -1,0 +1,24 @@
+= form_for [@project, @event] do |f|
+  - if @event.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@event.errors.count, "error")
+        prohibited this event from being saved:
+      %ul
+        - @event.errors.full_messages.each do |message|
+          %li= message
+  .field-row.field
+    = f.label :note
+    %br/
+    = f.text_field :note, required: true
+  .field-row.field
+    = f.label :start_date
+    %br/
+    = f.text_area :start_date, required: true
+  .field-row.field
+    = f.label :end_date
+    %br/
+    = f.text_area :end_date, required: true
+
+  .actions
+    = f.submit class: "btn btn-primary bg-green mb2"
