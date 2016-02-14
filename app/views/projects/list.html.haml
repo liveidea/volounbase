@@ -3,7 +3,7 @@
   - @projects.each do |project|
     .clearfix.py1
       .col.col-3.px2
-        %img{:alt => "", :src => project.cover.url(:medium)}/    
+        %img{:alt => "", :src => project.cover.url(:medium)}/
       .px2.col.col-1
         = project.user_id
       .px2.col.col-3
@@ -12,11 +12,11 @@
         = project.description
       .px2.col-1.right
         %small
-          = link_to 'Show', project
+          = link_to ' Show', project, class: 'typcn typcn-eye-outline green'
           %br/
-          = link_to 'Edit', edit_project_path(project)
+          = link_to ' Edit', edit_project_path(project), class: 'typcn typcn-pencil green'
           %br/
-          = link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' }
+          = link_to ' Destroy', project, method: :delete, data: { confirm: 'Are you sure?' }, class: 'typcn typcn-times red'
           %br/
 %br/
 .panel-bottom.bg-white.py2.border-top
