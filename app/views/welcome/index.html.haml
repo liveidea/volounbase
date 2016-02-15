@@ -1,19 +1,26 @@
-%div.py4
-  %h2.center
-    About
-  %p.center
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias suscipit, sint voluptates a explicabo atque! Impedit totam et fuga dignissimos, amet dolor a nulla commodi id eveniet dolore libero, dicta!
-.overflow-hidden.border.rounded
-  .p2
-    %h2.m0.center
-      Projects
-  .p2
-    .clearfix
-      - @projects.each do |project|
-        .col-4.col
-          .p3.center.project-item
-            %img{:alt => "", :src => project.cover.url(:medium)}/
-            %h3.project-title
-              = project.title
-            .project-descr
-              = project.description
+.overflow-hidden.border.rounded.mb4
+  %section
+    .p2
+      %h2.m0.center
+        Projects
+      .clearfix
+        - @projects.each do |project|
+          .col-4.col
+            .p3.center.project-item
+              %img{:alt => "", :src => project.cover.url(:medium)}/
+              %h3.project-title
+                = project.title
+              .project-descr
+                = project.description
+.overflow-hidden.rounded
+  %section
+    .p2
+      %h2.m0.center
+        Volounteers
+      .clearfix
+        - @volounteers.each do |volounteer|
+          .col-3.col
+            .bg-silver.rounded.clearfix
+              .p3.center.volounteer-item.left
+                %img.circle.border{:alt => "", :src => volounteer.avatar(:thumb)}/
+                  
