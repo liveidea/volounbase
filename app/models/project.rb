@@ -2,7 +2,7 @@ class Project < ActiveRecord::Base
   include Paperclip::Glue
   has_many :events, dependent: :destroy
   belongs_to :user
-  has_attached_file :cover, styles: { medium: "400x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png", 
+  has_attached_file :cover, styles: { medium: "400x300>", thumb: "100x100>" }, default_url: "/assets/images/missing/img.png", 
     url: "/images/projects/:attachment/:id/:style_:filename",
     path: ":rails_root/public/images/projects/:attachment/:id/:style_:filename"
 

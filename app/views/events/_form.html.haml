@@ -7,22 +7,22 @@
       %ul
         - @event.errors.full_messages.each do |message|
           %li= message
-  .field-row.field
+  .field-row
     = f.label :note
     %br/
-    = f.text_field :note, required: true
-  .field-row.field
+    = f.text_field :note, required: true, :class => 'field'
+  .field-row
     = f.label :start_date
     %br/
-    = f.text_area :start_date, required: true
-  .field-row.field
+    = f.text_area :start_date, required: true, :class => 'field'
+  .field-row
     = f.label :end_date
     %br/
-    = f.text_area :end_date, required: true
-  .field-row.field
+    = f.text_area :end_date, required: true, :class => 'field'
+  .field-row
     = f.label :status
     %br/
-    = f.select :status, options_for_select(Event::STATUSES), required: true
+    = f.select :status, options_for_select(Event::STATUSES), required: true, :class => 'field'
 
   .actions
     = f.submit class: "btn btn-primary bg-green mb2"

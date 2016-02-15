@@ -97,7 +97,6 @@ GEM
     method_source (0.8.2)
     mime-types (2.99)
     mimemagic (0.3.0)
-    mini_magick (4.3.6)
     mini_portile2 (2.0.0)
     minitest (5.8.4)
     multi_json (1.11.2)
@@ -196,7 +195,6 @@ DEPENDENCIES
   haml-rails
   jbuilder (~> 2.0)
   jquery-rails
-  mini_magick
   paperclip (~> 4.3)
   pg
   pry

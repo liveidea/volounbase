@@ -7,43 +7,52 @@
       %ul
         - @project.errors.full_messages.each do |message|
           %li= message
-  .field-row.field
-    = f.label :cover
-    = f.file_field :cover, :required => true
-  .field-row.field
-    = f.label :title
-    %br/
-    = f.text_field :title, :required => true
-  .field-row.field
-    = f.label :description, :required => true
-    %br/
-    = f.text_area :description
-    .event_fields
-      = f.fields_for :events do |event|
-        .py2.border.px-2
+  .clearfix
+    .col.col-4.px2
+      .field-row
+        = f.label :cover
+        %br/
+        %img{:alt => "", :src => @project.cover.url(:medium)}/
+        %br/
+        = f.file_field :cover, :class => "field"
+    .col.col-6.px2
+      .field-row
+        = f.label :title
+        %br/
+        = f.text_field :title, :required => true, :class => "field"
+      .field-row
+        = f.label :description, :required => true
+        %br/
+        = f.text_area :description, :class => "field"
+  .event_fields.py2
+    %h3 Events
+    = f.fields_for :events do |event|
+      .py2
+        .border.px2.rounded
           .clearfix
             .col.col-3
-              .field-row.field
+              .field-row
                 = event.label :note
                 %br/
-                = event.text_field :note, required: true
+                = event.text_field :note, required: true, :class => "field"
             .col.col-3
-              .field-row.field
+              .field-row
                 = event.label :start_date
                 %br/
-                = event.text_field :start_date, required: true
+                = event.text_field :start_date, required: true, :class => "field"
             .col.col-3
-              .field-row.field
+              .field-row
                 = event.label :end_date
                 %br/
-                = event.text_field :end_date, required: true
+                = event.text_field :end_date, required: true, :class => "field"
             .col.col-3
-              .field-row.field
+              .field-row
                 = event.label :status
                 %br/
                 = event.select :status, options_for_select(Event::STATUSES), required: true
-          %br/
-          = event.check_box :_destroy
-          = event.label :_destroy, 'remove'
+            %br/
+            = event.check_box :_destroy
+            = event.label :_destroy, 'remove'          
+    
   .actions
     = f.submit :class => "btn btn-primary bg-green mb2"
