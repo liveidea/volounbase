@@ -18,6 +18,32 @@
     = f.label :description, :required => true
     %br/
     = f.text_area :description
-
+    .event_fields
+      = f.fields_for :events do |event|
+        .py2.border.px-2
+          .clearfix
+            .col.col-3
+              .field-row.field
+                = event.label :note
+                %br/
+                = event.text_field :note, required: true
+            .col.col-3
+              .field-row.field
+                = event.label :start_date
+                %br/
+                = event.text_field :start_date, required: true
+            .col.col-3
+              .field-row.field
+                = event.label :end_date
+                %br/
+                = event.text_field :end_date, required: true
+            .col.col-3
+              .field-row.field
+                = event.label :status
+                %br/
+                = event.select :status, options_for_select(Event::STATUSES), required: true
+          %br/
+          = event.check_box :_destroy
+          = event.label :_destroy, 'remove'
   .actions
     = f.submit :class => "btn btn-primary bg-green mb2"
