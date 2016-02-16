@@ -21,12 +21,14 @@ class ProjectsController < ApplicationController
 
   def new
     @project = Project.new
-    # @project.events.new
     @project.events.build
     respond_with(@project)
   end
 
   def edit
+    @new_events = Project.new
+    @project = Project.find(params[:id])
+    @project.events.build
     respond_with(@project)
   end
 
@@ -53,7 +55,7 @@ class ProjectsController < ApplicationController
     end
 
     def project_params
-      params.require(:project).permit(:title, :description, :cover,
-                                      events_attributes: [:note, :start_date, :end_date, :status])
+      params.require(:project).permit(:id, :title, :description, :cover,
+                                      events_attributes: [:id, :note, :start_date, :end_date, :status, :_destroy])
     end
 end

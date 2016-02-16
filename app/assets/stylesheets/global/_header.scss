@@ -13,7 +13,7 @@
       padding: 0;
       margin: 0;
       li {
-        display: inline-block;  
+        display: inline-block;
         a {
           display: block;
           padding: 15px 15px;
@@ -23,9 +23,15 @@
   }
 }
 
+.Logo {
+  color: $green;
+  font-size: 18px;
+  font-weight: 700;
+}
+
 .mx-2 {
   margin: 0px 0px;
   @media (min-width: $media40em ) {
     margin: 0px -18px;
-  } 
+  }
 }

@@ -12,7 +12,7 @@
           %strong Description:
           = @project.description
       %div.py2.border-top
-        = @project.events.map do |event|
+        = @project.events.each do |event|
           .clearfix
             .col.col-3
               %strong

@@ -21,12 +21,12 @@
 .field {
   background-color: #e8eeef;
   border-color: #e8eeef;
-  transition: background-color 0.2s ease-in-out;    
+  transition: background-color 0.2s ease-in-out;
   &:hover,
   &:focus {
     background-color: #fff;
     border-color: #e8eeef;
-  } 
+  }
 }
 
 .btn {
@@ -40,6 +40,7 @@ h1, h2, h3, h4, h5 {
 body {
   font-weight: 500;
   color: #576366;
+  font-family: $base_font_family;
 }
 
 body,
@@ -50,23 +51,26 @@ html {
 select {
   padding: 0;
 }
-.page-main {
-  padding: 100px 0px 40px 0px;
+
+.page-wrapper {
   min-height: 100%;
-  margin-bottom: -25px;
+  margin-bottom: -120px;
   &:after {
     display: block;
-    height: 25px;
+    height: 120px;
     content: '';
   }
 }
+.page-main {
+  padding: 100px 0px 40px 0px;
+}
 // Projects
 .project-item {
-  
+
   .project-title {
-    
+
   }
   .project-descr {
-    
-  } 
+
+  }
 }

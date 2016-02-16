@@ -10,11 +10,11 @@
         %em
           (#{@minimum_password_length} characters minimum)
         %br/
-      = f.password_field :password, autofocus: true, autocomplete: "off"
+      = f.password_field :password, autofocus: true, autocomplete: "off", class: 'field'
     .field
       = f.label :password_confirmation, "Confirm new password"
       %br/
-      = f.password_field :password_confirmation, autocomplete: "off"
+      = f.password_field :password_confirmation, autocomplete: "off", class: 'field'
     .actions
       = f.submit "Change my password", :class=>"btn btn-primary bg-green"
   = render "devise/shared/links"
