@@ -8,4 +8,5 @@
       = f.email_field :email, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), class: 'field'
     .actions
       = f.submit "Resend confirmation instructions"
+.center.py2
   = render "devise/shared/links"

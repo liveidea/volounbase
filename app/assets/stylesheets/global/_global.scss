@@ -23,6 +23,7 @@ a {
   display: block;
   margin: 0 auto;
   background-color: #f6f9fa;
+  padding-bottom: 30px;
   .field {
     width: 100%;
   }
@@ -40,6 +41,10 @@ a {
 
 .btn {
   font-weight: 500;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  &:focus {
+    box-shadow: none;
+  }
 }
 
 h1, h2, h3, h4, h5 {
@@ -87,4 +92,16 @@ select {
 
 #error_explanation {
   color: red;
+}
+
+.pagination {
+  margin: 20px 0 30px;
+}
+
+.panel-bottom {
+  position: fixed;
+  z-index: 111;
+  width: 100%;
+  left: 0;
+  bottom: 0;
 }

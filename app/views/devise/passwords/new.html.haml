@@ -6,6 +6,7 @@
       = f.label :email
       %br/
       = f.email_field :email, autofocus: true, class: 'field'
-    .actions
+    .actions.center
       = f.submit "Send me reset password instructions", :class=>"btn btn-primary bg-green"
+.center.py2
   = render "devise/shared/links"

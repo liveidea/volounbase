@@ -15,6 +15,7 @@
       = f.label :password_confirmation, "Confirm new password"
       %br/
       = f.password_field :password_confirmation, autocomplete: "off", class: 'field'
-    .actions
+    .actions.center
       = f.submit "Change my password", :class=>"btn btn-primary bg-green"
+.center.py2
   = render "devise/shared/links"
