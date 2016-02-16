@@ -6,8 +6,17 @@
     color: #7f8c8d;
   }
 }
-
-
+a {
+  text-decoration: none;
+  &:focus,
+  &:hover {
+    outline: none;
+    text-decoration: none;
+  }
+}
+.bg-light {
+  background-color: #f6f9fa;
+}
 // Forms
 .form-all {
   width: 500px;
@@ -73,4 +82,9 @@ select {
   .project-descr {
 
   }
+}
+
+
+#error_explanation {
+  color: red;
 }
