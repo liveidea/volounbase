@@ -1,16 +1,22 @@
 .container
-  %h1 All projects
+  %h1.px2 All projects
   - @projects.each do |project|
-    .clearfix.py-1
-      .col.col-3.px2
-        %img{:alt => "", :src => project.cover.url(:medium)}/
-      .px2.col.col-3
-        = project.title
-      .px2.col.col-5
-        = project.description
+    .py1
+      .clearfix
+        .col.col-2.px2
+          %img{:alt => "", :src => project.cover.url(:medium)}/
+        .px2.col.col-3
+          %h4
+            = project.title
+        .px2.col.col-3
+          %h4
+            Description:
+          = project.description
+        .right
+          = link_to ' Read more', project, class: 'typcn typcn-eye-outline btn btn-outline green'   
 
-    %hr/
-  = paginate @projects
+      %hr/
+    = paginate @projects
 %br/
 .panel-bottom.bg-white.py2.border-top
   .container.white
