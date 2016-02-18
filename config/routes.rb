@@ -54,9 +54,14 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  concern :paginatable do
+    get '(page/:page)', :action => :index, :on => :collection, :as => ''
+  end
 
   resources :projects do
     get :list, on: :collection
     resources :events
+    concerns :paginatable
   end
+  
 end

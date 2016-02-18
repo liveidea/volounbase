@@ -20,7 +20,7 @@
       .clearfix
         - @volounteers.each do |volounteer|
           .col-3.col
-            .bg-silver.rounded.clearfix
+            .bg-light.rounded.clearfix
               .p3.center.volounteer-item.left
-                %img.circle.border{:alt => "", :src => volounteer.avatar(:thumb)}/
-                  
+                = #volounteer.name
+                %img.circle.border{:alt => "", :src => volounteer.avatar(:thumb), :width => "100", :height => "100"}/

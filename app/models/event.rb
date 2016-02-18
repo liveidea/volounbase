@@ -3,7 +3,7 @@ class Event < ActiveRecord::Base
   belongs_to :project
 
   STATUSES = ["public", "private", "archive"]
-  
+
   validates :note, :start_date, :end_date, :presence => true
 
   validate :start_date_is_valid_datetime

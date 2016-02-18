@@ -11,7 +11,8 @@
       %p.notice= notice
       %p.alert= alert
   = render 'global/header'
-  .page-main
-    .container
-      = yield
+  .page-wrapper
+    .page-main
+      .container
+        = yield
   = render 'global/footer'

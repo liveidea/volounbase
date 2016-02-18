@@ -1,0 +1,29 @@
+.py2.event-row
+  .border.px2.rounded
+    .clearfix
+      .col.col-3
+        .field-row
+          = f.label :note
+          %br/
+          = f.text_field :note, class: "field", :required => true
+      .col.col-3
+        .field-row
+          = f.label :start_date
+          %br/
+          = f.text_field :start_date, class: "field", :required => true
+      .col.col-3
+        .field-row
+          = f.label :end_date
+          %br/
+          = f.text_field :end_date, class: "field", :required => true
+      .col.col-2
+        .field-row
+          = f.label :status
+          %br/
+          = f.select :status, options_for_select(Event::STATUSES)
+          %br/
+      .col.col-2
+        %small
+          = f.check_box :_destroy
+          = f.label :_destroy, "Remove", class: "red"
+        = #link_to "remove", "#", class: "js-remove-field btn typcn typcn-times red"
