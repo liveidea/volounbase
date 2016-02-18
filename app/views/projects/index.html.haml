@@ -6,6 +6,8 @@
         .col.col-2.px2
           %img{:alt => "", :src => project.cover.url(:medium)}/
         .px2.col.col-3
+          %small.date
+            = project.created_at        
           %h4
             = project.title
         .px2.col.col-3
@@ -13,11 +15,12 @@
             Description:
           = project.description
         .right
-          = link_to ' Read more', project, class: 'typcn typcn-eye-outline btn btn-outline green'   
+          = link_to 'Read more <span class="typcn typcn-arrow-right"></span>'.html_safe, project, class: 'btn btn-outline green'
+          = link_to ' Destroy', project, method: :delete, data: { confirm: 'Are you sure?' }, class: 'typcn typcn-times red'          
 
       %hr/
     = paginate @projects
 %br/
-.panel-bottom.bg-white.py2.border-top
+.panel-add.bg-white.py2
   .container.white
     = link_to 'Add Project', new_project_path, {:class=>"btn btn-primary bg-green right"}

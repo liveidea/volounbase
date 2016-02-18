@@ -5,13 +5,13 @@ class ProjectsController < ApplicationController
   respond_to :html
 
   def index
-    @projects = Project.all.order(:created_at).page(params[:page])
+    @projects = Project.all.order(created_at: :desc).page(params[:page])
     respond_with(@projects)
   end
 
   # User owner list
   def list
-    @projects = Project.where(user:current_user).order(:created_at).page(params[:page])
+    @projects = Project.where(user:current_user).order(created_at: :desc).page(params[:page])
     respond_with(@projects)
   end
 
