@@ -7,12 +7,12 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    .container
-      %p.notice= notice
-      %p.alert= alert
-  = render 'global/header'
-  .page-wrapper
-    .page-main
-      .container
-        = yield
-  = render 'global/footer'
+    = render 'global/header'
+    .page-wrapper
+      .page-main
+        .container
+          %p.notice= notice
+          %p.alert= alert      
+        .container
+          = yield
+    = render 'global/footer'

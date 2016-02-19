@@ -8,6 +8,7 @@
 }
 a {
   text-decoration: none;
+  transition: all 0.2s ease-in-out;
   &:focus,
   &:hover {
     outline: none;
@@ -68,10 +69,10 @@ select {
 
 .page-wrapper {
   min-height: 100%;
-  margin-bottom: -120px;
+  margin-bottom: -$footer_height;
   &:after {
     display: block;
-    height: 120px;
+    height: $footer_height;
     content: '';
   }
 }
@@ -104,4 +105,34 @@ select {
   width: 100%;
   left: 0;
   bottom: 0;
+}
+
+.panel-add {
+  position: fixed;
+  z-index: 111;
+  width: 100%;
+  left: 0;
+  top: 0;
+  margin-top: 66px; 
+}
+
+
+// Dropdowns
+.dropdown {
+  position: relative;
+  .dropdown-menu {
+    opacity: 0;
+    pointer-events: none;
+    z-index: -1;
+    visibility: hidden;
+    transition: all 0.2s ease-in-out;
+  }
+  &:hover {
+    .dropdown-menu {
+      opacity: 1;
+      pointer-events: auto;
+      z-index: 1;
+      visibility: visible;
+    }    
+  }
 }

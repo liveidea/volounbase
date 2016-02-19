@@ -1,21 +1,25 @@
-.overflow-hidden.border.rounded.mb4
+.overflow-hidden.rounded.mb4
   %section
     .p2
-      %h2.m0.center
+      %h2.h1.center
         Projects
       .clearfix
         - @projects.each do |project|
           .col-4.col
-            .p3.center.project-item
+            .p2.center.project-item
               %img{:alt => "", :src => project.cover.url(:medium)}/
               %h3.project-title
                 = project.title
               .project-descr
                 = project.description
+              = link_to 'Read more <span class="typcn typcn-arrow-right"></span>'.html_safe, project, class: 'btn blue'     
+    .center.mb3
+      = link_to 'View all projects'.html_safe, projects_path, class: 'btn btn-primary bg-green'            
+%hr/
 .overflow-hidden.rounded
   %section
     .p2
-      %h2.m0.center
+      %h2.h1.center
         Volounteers
       .clearfix
         - @volounteers.each do |volounteer|
@@ -24,3 +28,5 @@
               .p3.center.volounteer-item.left
                 = #volounteer.name
                 %img.circle.border{:alt => "", :src => volounteer.avatar(:thumb), :width => "100", :height => "100"}/
+    .center.m3
+      = link_to 'Become a volounteer'.html_safe, projects_path, class: 'btn btn-primary bg-green'

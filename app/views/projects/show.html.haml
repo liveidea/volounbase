@@ -1,9 +1,9 @@
 .container
   %p#notice= notice
-  .clearfix.py2
+  .clearfix
     .col.col-3.px2
       %img{:alt => "", :src => @project.cover.url(:medium)}/
-    .col.col-9
+    .col.col-9.px2
       .py2
         %div
           %strong Title:
@@ -11,20 +11,21 @@
         %div
           %strong Description:
           = @project.description
-      %div.py2.border-top
-        = @project.events.each do |event|
-          .clearfix
-            .col.col-3
-              %strong
-                Note :
-              = event.note
-            .col.col-3
-              %strong
-                Start_date:
-              = event.start_date
-            .col.col-3
-              %strong
-                Start_date:
-              = event.start_date
     .px2.mt3
       = link_to 'Edit', edit_project_path(@project), class: 'btn typcn typcn-pencil green'
+  %h3.px2 Events
+  = @project.events.map do |event|
+    .m2
+      .bg-silver.clearfix.rounded.px2.py1
+        .col.col-4.px2
+          %strong
+            Note :
+          = event.note
+        .col.col-4.px2
+          %strong
+            Start date:
+          = event.start_date
+        .col.col-4.px2
+          %strong
+            End date:
+          = event.end_date

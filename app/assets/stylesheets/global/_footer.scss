@@ -1,6 +1,6 @@
 // Footer
 .page-footer {
-  height: 120px;
+  height: $footer_height;
 }
 
 .social-nav {
@@ -22,10 +22,12 @@
         vertical-align: middle;
         font-size: 17px;
         border: 1px solid #ccc;
-        color: #ccc;
+        background-color: #ccc;
+        color: #fff;
+        transition: all 0.2s ease-in-out;
         &:hover {
-          background-color: #ccc;
-          color: #fff;
+          background-color: #fff;
+          color: #ccc;
         }
       }
     }

@@ -21,6 +21,13 @@
       }
     }
   }
+  .btn {
+    &.green {
+      &:hover {
+        color: darken($green, 10%);
+      }
+    }
+  }
 }
 
 .Logo {
