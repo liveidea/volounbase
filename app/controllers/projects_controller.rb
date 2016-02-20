@@ -28,7 +28,6 @@ class ProjectsController < ApplicationController
   def edit
     @new_events = Project.new
     @project = Project.find(params[:id])
-    @project.events.build
     respond_with(@project)
   end
 

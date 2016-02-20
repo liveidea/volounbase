@@ -1,6 +1,6 @@
-$(document).ready(function() {
-  $(".datepicker").datetimepicker();
-});
+// $(document).ready(function() {
+//   $(".datepicker").datetimepicker();
+// });
 
 // $('document').on('click', '.js-remove-field', function(e){
 //   $(this).prev('input[type=hidden]').val('1');

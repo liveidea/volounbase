@@ -5,9 +5,10 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :projects
-  has_attached_file :avatar, styles: { thumb: "200x200>" }, default_url: "/assets/images/missing/noavatar.png", 
+  has_many :candidates
+  has_attached_file :avatar, styles: { thumb: "200x200>" }, default_url: "/assets/images/missing/noavatar.png",
     url: "/images/users/:id_:filename",
     path: ":rails_root/public/images/users/:id_:filename"
-    
-  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/  
+
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 end
