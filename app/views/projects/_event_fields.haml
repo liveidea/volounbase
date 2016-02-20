@@ -10,12 +10,13 @@
         .field-row
           = f.label :start_date
           %br/
-          = f.text_field :start_date, class: "field", :required => true
+          = f.text_field :start_date, class: "field datepicker", :required => true, value: (f.object.start_date.nil?) ? '' : f.object.start_date.strftime("%d.%m.%Y %H:%I")
       .col.col-3
         .field-row
           = f.label :end_date
           %br/
-          = f.text_field :end_date, class: "field", :required => true
+          = f.text_field :end_date, class: "field datepicker", :required => true, value: (f.object.end_date.nil?) ? '' : f.object.end_date.strftime("%d.%m.%Y %H:%I")
+
       .col.col-2
         .field-row
           = f.label :status
@@ -23,7 +24,8 @@
           = f.select :status, options_for_select(Event::STATUSES)
           %br/
       .col.col-2
-        %small
-          = f.check_box :_destroy
-          = f.label :_destroy, "Remove", class: "red"
-        = #link_to "remove", "#", class: "js-remove-field btn typcn typcn-times red"
+        -# %small
+        -#   = f.check_box :_destroy
+        -#   = f.label :_destroy, "Remove", class: "red"
+        = f.hidden_field :_destroy
+        = link_to "remove", "#", class: "js-remove-field btn typcn typcn-times red"
