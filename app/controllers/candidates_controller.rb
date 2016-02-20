@@ -26,7 +26,7 @@ class CandidatesController < ApplicationController
   end
 
   def show
-    @candidates = Candidate.where(user_id: current_user).where(event_id: @event)
+    @candidates = Candidate.where(user_id: current_user).where(event_id: @event).order(created_at: :desc).page(params[:page])
     respond_with(@candidate, @event)
   end
 

@@ -37,6 +37,7 @@
             .field-row
               username
               = f.text_field :username, autocomplete: "off", :class => 'field'
+              = current_user.username
             .field-row
               first_name
               = f.text_field :first_name, autocomplete: "off", :class => 'field'
