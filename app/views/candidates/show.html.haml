@@ -1,6 +1,6 @@
 .container
-  %h1.px2 
-    Inviters for event 
+  %h1.px2
+    Inviters for event
     = @event.note
     = @event.id
   - @candidates.each do |candidate|
@@ -13,10 +13,10 @@
         = candidate.event_id
         %br/
         Status
-        = candidate.is_accepted
+        = candidate.status
       .col.col-3.px2
         %small
-          = link_to 'Decline', event_candidate_path(@event, candidate), method: :delete, class: 'btn btn-outline red'
+          = link_to 'Decline', decline_trigger_event_candidate_path(@event, candidate), method: :put, class: 'btn btn-outline red'
 
 
   .clearfix.border-bottom.py1

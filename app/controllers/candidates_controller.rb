@@ -1,6 +1,6 @@
 class CandidatesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_candidate, only: [:update, :destroy, :accept_trigger]
+  before_action :set_candidate, only: [:accept_trigger, :decline_trigger]
   before_action :set_event, only: [:show, :create]
 
   respond_to :html
@@ -13,18 +13,15 @@ class CandidatesController < ApplicationController
     redirect_to(:back)
   end
 
-  def update
-    @candidate.update(candidate_params)
-    respond_with(@candidate)
-  end
-
   def accept_trigger
-    @candidate.update(candidate_params)
-    respond_with(@candidate)
+    @candidate.status = "accepted"
+    @candidate.save
+    redirect_to(:back)
   end
 
-  def destroy
-    @candidate.destroy
+  def decline_trigger
+    @candidate.status = "declined"
+    @candidate.save
     redirect_to(:back)
   end
 
@@ -41,10 +38,6 @@ class CandidatesController < ApplicationController
 
     def set_candidate
         @candidate = Candidate.find(params[:id])
-    end
-
-    def candidate_params
-      params.require(:candidate).permit(:id, :event_id, :is_accepted)
     end
 
 end
