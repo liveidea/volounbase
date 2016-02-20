@@ -33,6 +33,22 @@
             %i (we need your current password to confirm your changes)
             %br/
             = f.password_field :current_password, autocomplete: "off", :class => 'field'
+          .additional
+            .field-row
+              username
+              = f.text_field :username, autocomplete: "off", :class => 'field'
+            .field-row
+              first_name
+              = f.text_field :first_name, autocomplete: "off", :class => 'field'
+            .field-row
+              last_name
+              = f.text_field :last_name, autocomplete: "off", :class => 'field'
+            .field-row
+              gender
+              = f.text_field :gender, autocomplete: "off", :class => 'field'
+            .field-row
+              date_of_birth
+              = f.text_field :date_of_birth, autocomplete: "off", :class => 'field'          
           .actions.center
             = f.submit "Update", :class=>"btn btn-primary bg-green"
   %h3 Cancel my account
