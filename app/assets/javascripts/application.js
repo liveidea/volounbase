@@ -13,8 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require plugins/jquery.magnific-popup
+//= jquery.datetimepicker
+//= main
 //= require_tree .
+
 $('document').on('click', '.js-remove-field', function(e){
   $(this).prev('input[type=hidden]').val('1');
   console.log('remove row');
