@@ -2,7 +2,7 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title VolunteerFinder
+    %title= content_for?(:title) ? yield(:title) : 'VolunteerFinder'
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
@@ -12,7 +12,7 @@
       .page-main
         .container
           %p.notice= notice
-          %p.alert= alert      
+          %p.alert= alert
         .container
           = yield
     = render 'global/footer'

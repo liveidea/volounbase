@@ -1,15 +1,37 @@
-// $(document).ready(function() {
-//   $(".datepicker").datetimepicker();
-// });
+function initScripts(){
 
-// $('document').on('click', '.js-remove-field', function(e){
-//   $(this).prev('input[type=hidden]').val('1');
-//   console.log('remove row');
-//   $(this).parents('.event-row').hide();
-//   e.preventDefault();
-// });
+  var initDatePicker = function() {
 
-// $('document').on('click', '.js-add-field', function(e){
-//   console.log('add new row');
-//   e.preventDefault();
-// });
+    $(".datepicker").datetimepicker({
+      format:'d.m.Y H:i',
+      mask: true,
+      step: 30,
+    });
+
+  }
+
+  initDatePicker();
+
+  $('body').on('click', '.js-remove-field', function(e){
+    $(this).prev('input[type=hidden]').val('1');
+    $(this).parents('.event-row').hide();
+    e.preventDefault();
+  });
+
+  $('body').on('click', '.js-add-field', function(e){
+    var new_id = new Date().getTime();
+    var regexp = new RegExp("new_" + $(this).data("association"), "g")
+    $("#event_fields").append($(this).data("fields").replace(regexp, new_id))
+    initDatePicker();
+    e.preventDefault();
+  });
+
+}
+
+$(document).ready(function(){
+  initScripts()
+})
+
+$(document).off('page:load').on('page:load', function(){
+  initScripts()
+})

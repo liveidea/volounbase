@@ -13,5 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= main
+//= require plugins/jquery.datetimepicker
+//= require main
 
