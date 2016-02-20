@@ -63,5 +63,10 @@ Rails.application.routes.draw do
     resources :events
     concerns :paginatable
   end
-  
+
+  resources :events do
+    get "invites", to: "candidates#show"
+    resources :candidates, only: [:create, :update, :destroy]
+  end
+
 end
