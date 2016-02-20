@@ -30,6 +30,11 @@ a {
     width: 100%;
   }
 }
+
+.form-profile {
+
+}
+
 .field {
   background-color: #e8eeef;
   border-color: #e8eeef;
@@ -114,7 +119,10 @@ select {
   width: 100%;
   left: 0;
   top: 0;
-  margin-top: 66px; 
+  margin-top: 66px;
+  &.bg-white {
+    background-color: rgba(255,255,255,0.96);
+  }
 }
 
 

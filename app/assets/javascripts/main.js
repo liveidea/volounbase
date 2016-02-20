@@ -8,6 +8,12 @@ function initScripts(){
       step: 30,
     });
 
+    $(".datepicker-date").datetimepicker({
+      format:'d.m.Y',
+      mask: true,
+      timepicker: false
+    });    
+
   }
 
   initDatePicker();
