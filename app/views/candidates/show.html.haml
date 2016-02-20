@@ -1,0 +1,22 @@
+.container
+  %h1.px2 
+    Inviters for event 
+    = @event.note
+    = @event.id
+  - @candidates.each do |candidate|
+    .clearfix
+      .col.col-3.px2
+        Candidate
+        = candidate.user_id
+      .col.col-3.px2
+        Event id
+        = candidate.event_id
+        %br/
+        Status
+        = candidate.is_accepted
+      .col.col-3.px2
+        %small
+          = link_to 'Decline', event_candidate_path(@event, candidate), method: :delete, class: 'btn btn-outline red'
+
+
+  .clearfix.border-bottom.py1
