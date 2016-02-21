@@ -15,24 +15,31 @@
     .m2
       .bg-light-gray.clearfix.rounded.px2.py1
         .col.col-3.px2
-          = event.id
           %strong
             Note :
           = event.note
         .col.col-3.px2
           %strong
             Start date:
+            %br/
           = (event.start_date.nil?) ? '' : event.start_date.strftime("%d.%m.%Y %H:%I")
         .col.col-3.px2
           %strong
             End date:
+            %br/
           = (event.end_date.nil?) ? '' : event.end_date.strftime("%d.%m.%Y %H:%I")
         .col-3.col
           .right
             - if is_user_organizer
               = link_to 'Invites', event_invites_path(event), class: 'btn btn-primary bg-green'
             - else
-              = link_to 'Register', event_candidates_path(event), method: :post, class: 'btn btn-primary bg-green'
+              - if event.is_current_user_candidate(current_user)
+                = link_to 'Register', event_candidates_path(event), method: :post, class: 'btn btn-primary bg-green'
+              - else
+                / TODO: need optimize this code | UnRegister Button
+                - event.candidates.map do |candidate|
+                  - if candidate.user_id == current_user.id
+                    = link_to 'UnRegister', event_candidate_path(event, candidate), method: :delete, class: 'btn btn-outline red'
 .panel-add.bg-white.py2
   .container.white
     .right

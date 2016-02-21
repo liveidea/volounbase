@@ -10,7 +10,7 @@ class Project < ActiveRecord::Base
 
   validates_attachment_content_type :cover, content_type: /\Aimage\/.*\Z/
 
-  paginates_per 10
+  paginates_per 9
 
   validates :title, :cover, presence: true
   validates_associated :events

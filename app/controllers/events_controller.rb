@@ -2,6 +2,7 @@ class EventsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_event, only: [:edit, :update, :destroy]
   before_action :set_project, only: [:new, :edit, :create, :update, :destroy]
+  before_action :set_candidate, only: [:destroy]
 
   respond_to :html
 

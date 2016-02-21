@@ -1,7 +1,7 @@
 class CandidatesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_candidate, only: [:accept_trigger]
-  before_action :set_event, only: [:show, :create, :accept_trigger]
+  before_action :set_candidate, only: [:accept_trigger, :destroy]
+  before_action :set_event, only: [:show, :create, :accept_trigger, :destroy]
 
   respond_to :html
 
@@ -9,12 +9,18 @@ class CandidatesController < ApplicationController
     @candidate = Candidate.new
     @candidate.user = current_user
     @candidate.event = @event
+    @candidate.status = "waiting"
     @candidate.save
     redirect_to(:back)
   end
 
+  def destroy
+    @candidate.destroy
+    redirect_to(:back)
+  end
+
   def accept_trigger
-    @candidates = Candidate.where(user_id: current_user).where(event_id: @event).order(created_at: :desc).page(params[:page])
+    @candidates = Candidate.where(event_id: @event).order(created_at: :desc).page(params[:page])
     if !get_status.nil?
       @candidate.status = get_status
       @candidate.save
@@ -26,7 +32,7 @@ class CandidatesController < ApplicationController
   end
 
   def show
-    @candidates = Candidate.where(user_id: current_user).where(event_id: @event).order(created_at: :desc).page(params[:page])
+    @candidates = Candidate.where(event_id: @event).order(created_at: :desc).page(params[:page])
     respond_with(@candidate, @event)
   end
 
