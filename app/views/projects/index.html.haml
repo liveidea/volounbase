@@ -15,8 +15,7 @@
             Description:
           = project.description
         .right
-          = link_to 'Read more <span class="typcn typcn-arrow-right"></span>'.html_safe, project, class: 'btn btn-outline green'
-          = link_to ' Destroy', project, method: :delete, data: { confirm: 'Are you sure?' }, class: 'typcn typcn-times red'          
+          = link_to 'Read more <span class="typcn typcn-arrow-right"></span>'.html_safe, project, class: 'btn btn-outline green'         
 
       %hr/
     = paginate @projects

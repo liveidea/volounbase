@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :projects
   has_many :candidates
-  has_attached_file :avatar, styles: { thumb: "200x200>" }, default_url: "/assets/images/missing/noavatar.png",
+  has_attached_file :avatar, styles: { thumb: "200x200>" }, default_url: "/images/missing/noavatar.png",
     url: "/images/users/:id_:filename",
     path: ":rails_root/public/images/users/:id_:filename"
 

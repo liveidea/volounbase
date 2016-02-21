@@ -1,36 +1,37 @@
 .container
   %p#notice= notice
-  .clearfix
+  .clearfix.py3
     .col.col-3.px2
       %img{:alt => "", :src => @project.cover.url(:medium)}/
     .col.col-9.px2
-      .py2
-        %div
-          %strong Title:
-          = @project.title
-        %div
-          %strong Description:
-          = @project.description
-    .px2.mt3
-      = link_to 'Edit', edit_project_path(@project), class: 'btn typcn typcn-pencil green'
+      %div
+        %strong Title:
+        = @project.title
+      %div
+        %strong Description:
+        = @project.description
   %h3.px2 Events
   - @project.events.map do |event|
     .m2
       .bg-light-gray.clearfix.rounded.px2.py1
         .col.col-3.px2
+          = event.id
           %strong
             Note :
-          = event.id
           = event.note
         .col.col-3.px2
           %strong
             Start date:
-          = event.start_date
+          = (event.start_date.nil?) ? '' : event.start_date.strftime("%d.%m.%Y %H:%I")
         .col.col-3.px2
           %strong
             End date:
-          = event.end_date
+          = (event.end_date.nil?) ? '' : event.end_date.strftime("%d.%m.%Y %H:%I")
         .col-3.col
           .right
             = link_to 'Invites', event_invites_path(event), class: 'btn btn-primary bg-green'
             = link_to 'Register', event_candidates_path(event), method: :post, class: 'btn btn-primary bg-green'
+.panel-add.bg-white.py2
+  .container.white
+    .right
+      = link_to 'Edit', edit_project_path(@project), class: 'btn typcn typcn-pencil green'

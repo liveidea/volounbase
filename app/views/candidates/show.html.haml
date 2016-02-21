@@ -17,6 +17,6 @@
       .col.col-3.px2
         %small
           = link_to 'Decline', decline_trigger_event_candidate_path(@event, candidate), method: :put, class: 'btn btn-outline red'
-
+  = paginate @candidates
 
   .clearfix.border-bottom.py1
