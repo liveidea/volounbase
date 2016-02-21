@@ -19,16 +19,17 @@
     .m2
       .bg-light-gray.clearfix.rounded.px2.py1
         .col.col-3.px2
-          %strong
+          %small.gray.gray
             Note :
+          %br/
           = event.note
         .col.col-3.px2
-          %strong
+          %small.gray.gray
             Start date:
             %br/
           = (event.start_date.nil?) ? '' : event.start_date.strftime("%d.%m.%Y %H:%I")
         .col.col-3.px2
-          %strong
+          %small.gray.gray
             End date:
             %br/
           = (event.end_date.nil?) ? '' : event.end_date.strftime("%d.%m.%Y %H:%I")

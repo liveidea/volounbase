@@ -8,10 +8,12 @@ function initScripts(){
       step: 30,
     });
 
+    var d = new Date(),
+        date_now = d.getUTCDate()+'/'+d.getUTCMonth()+1+'/'+d.getUTCFullYear();
     $(".datepicker-date").datetimepicker({
       format:'d.m.Y',
       mask: true,
-      timepicker: false
+      timepicker: false,
     });    
 
   }
@@ -43,9 +45,7 @@ function initScripts(){
             src: '<div class="modal center"><div class="m2"><h3>'+message+'</h3></div><p><a href="#" class="js-popup-modal-dismiss btn btn-outline green">Cancel</a><a href="#" class="js-popup-modal-accept btn-primary btn btn-outline bg-green">OK</a></p></div>' 
         },
         type: 'inline',
-        
     })
-
 
     // cancel
     $('body').on('click', '.js-popup-modal-dismiss', function (e) {
@@ -60,10 +60,7 @@ function initScripts(){
       element.trigger("click.rails");
       e.preventDefault();
       $.magnificPopup.close();
-    });  
-
-
-    // event.preventDefault();
+    });      
     return false;
   });
 

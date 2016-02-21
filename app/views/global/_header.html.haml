@@ -3,6 +3,8 @@
     .mx-2
       %a{:href => "/" , :class => "Logo"}
         VolounteerFinder
+        .beta
+          PreAlpha
       .right
         - if user_signed_in?
           = link_to 'Projects', projects_path, :class=>"btn green"

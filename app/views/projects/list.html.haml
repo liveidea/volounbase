@@ -4,7 +4,7 @@
     .py1
       .clearfix.border-bottom.py1
         .col.col-2.px2
-          %img{:alt => "", :src => project.cover.url(:medium)}/
+          = link_to "#{image_tag(project.cover.url(:medium))}".html_safe, project
         .px2.col.col-3
           %small.date
             = project.created_at

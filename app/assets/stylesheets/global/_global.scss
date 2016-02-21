@@ -85,9 +85,35 @@ select {
 .page-main {
   padding: 100px 0px 40px 0px;
 }
+
+.img-wrap {
+  position: relative;
+  line-height: 1;
+  a {
+    display: block;
+  }
+  &:hover {
+    &:before {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
 // Projects
 .project-item {
-
   .project-title {
 
   }
