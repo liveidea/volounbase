@@ -6,4 +6,14 @@ module ApplicationHelper
     end
     link_to(name, '#', class: cssClass, data: {association: "#{association}", fields: fields.gsub("\n", "")})
   end
+
+  def is_user_organizer
+    if @project.user == current_user
+      value = true
+    else
+      value = false
+    end
+    return value
+  end
+
 end

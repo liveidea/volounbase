@@ -14,5 +14,6 @@ class Project < ActiveRecord::Base
 
   validates :title, :cover, presence: true
   validates_associated :events
+
 end
 

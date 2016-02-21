@@ -29,8 +29,10 @@
           = (event.end_date.nil?) ? '' : event.end_date.strftime("%d.%m.%Y %H:%I")
         .col-3.col
           .right
-            = link_to 'Invites', event_invites_path(event), class: 'btn btn-primary bg-green'
-            = link_to 'Register', event_candidates_path(event), method: :post, class: 'btn btn-primary bg-green'
+            - if is_user_organizer
+              = link_to 'Invites', event_invites_path(event), class: 'btn btn-primary bg-green'
+            - else
+              = link_to 'Register', event_candidates_path(event), method: :post, class: 'btn btn-primary bg-green'
 .panel-add.bg-white.py2
   .container.white
     .right
