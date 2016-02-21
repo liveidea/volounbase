@@ -18,7 +18,8 @@ tmp/
 .idea
 coverage/
 public/test
-public/images
+!public/images/missing
+public/images/*
 public/system
 config/database.yml
 /.project

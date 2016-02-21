@@ -3,20 +3,23 @@
     Inviters for event
     = @event.note
     = @event.id
-  - @candidates.each do |candidate|
-    .clearfix
-      .col.col-3.px2
-        Candidate
-        = candidate.user_id
-      .col.col-3.px2
-        Event id
-        = candidate.event_id
-        %br/
-        Status
-        = candidate.status
-      .col.col-3.px2
-        %small
-          = link_to 'Decline', decline_trigger_event_candidate_path(@event, candidate), method: :put, class: 'btn btn-outline red'
-  = paginate @candidates
+  #items
+    - @candidates.each do |candidate|
+      .clearfix.py1
+        .col.col-3.px2
+          Candidate
+          = candidate.user_id
+        .col.col-3.px2
+          Event id
+          = candidate.event_id
+        .col.col-3.px2
+          Status
+          %strong
+            = candidate.status
+        .right.px2
+          %small
+            = link_to '<span class="typcn typcn-delete-outline"></span> Decline'.html_safe, accept_trigger_event_candidate_path(@event, candidate, status: "decline"), method: :put, class: 'btn btn-outline red js-remove', remote: true
+            = link_to '<span class="typcn typcn-tick"></span> Accept'.html_safe, accept_trigger_event_candidate_path(@event, candidate, status: "accept"), method: :put, class: 'btn btn-outline btn-primary bg-green', remote: true
+    = paginate @candidates
 
-  .clearfix.border-bottom.py1
+    .clearfix.border-bottom.py1
