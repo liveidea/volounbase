@@ -145,3 +145,17 @@ select {
     }    
   }
 }
+
+
+// modal
+.modal {
+  background: #fff none repeat scroll 0 0;
+  margin: 20px auto;
+  max-width: 400px;
+  padding: 2em 3em;
+  position: relative;
+  width: auto;
+  .btn {
+    margin: 0px 5px;
+  }
+}

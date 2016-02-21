@@ -32,6 +32,41 @@ function initScripts(){
     e.preventDefault();
   });
 
+  // Confirm modal | TODO: Some BUGS, when delete to offen
+  //User click confirm button 
+  $('body').on('confirm', function (event) {
+    var element = $(event.target);
+    var message = element.data("confirm");
+
+    $.magnificPopup.open({
+        items: {
+            src: '<div class="modal center"><div class="m2"><h3>'+message+'</h3></div><p><a href="#" class="js-popup-modal-dismiss btn btn-outline green">Cancel</a><a href="#" class="js-popup-modal-accept btn-primary btn btn-outline bg-green">OK</a></p></div>' 
+        },
+        type: 'inline',
+        
+    })
+
+
+    // cancel
+    $('body').on('click', '.js-popup-modal-dismiss', function (e) {
+      e.preventDefault();
+      $.magnificPopup.close();
+    });  
+
+    // accept
+    $('body').on('click', '.js-popup-modal-accept', function (e) {
+      // User hits OK
+      element.data("confirm", null);
+      element.trigger("click.rails");
+      e.preventDefault();
+      $.magnificPopup.close();
+    });  
+
+
+    // event.preventDefault();
+    return false;
+  });
+
 }
 
 $(document).ready(function(){

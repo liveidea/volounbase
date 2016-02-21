@@ -14,5 +14,6 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require plugins/jquery.datetimepicker
+//= require plugins/jquery.magnific-popup
 //= require main
 

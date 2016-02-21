@@ -46,6 +46,7 @@ class ProjectsController < ApplicationController
   def destroy
     @project.destroy
     respond_with(@project)
+    redirect_to(:back)
   end
 
   private

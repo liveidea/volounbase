@@ -16,13 +16,11 @@
           = project.description
           
         .right
-          %small
-            = link_to ' Show', project, class: 'typcn typcn-eye-outline green'
-            %br/
-            = link_to ' Edit', edit_project_path(project), class: 'typcn typcn-pencil green'
-            %br/
-            = link_to ' Destroy', project, method: :delete, data: { confirm: 'Are you sure?' }, class: 'typcn typcn-times red'
-            %br/
+          = link_to ' View', project, class: 'typcn typcn-eye-outline green btn'
+          %br/
+          = link_to ' Edit', edit_project_path(project), class: 'typcn typcn-pencil green btn'
+          
+
 .panel-add.bg-white.py2
   .container.white
     = link_to 'Add Project', new_project_path, {:class=>"btn btn-primary bg-green right"}
