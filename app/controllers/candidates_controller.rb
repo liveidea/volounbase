@@ -1,7 +1,7 @@
 class CandidatesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_candidate, only: [:accept_trigger, :decline_trigger]
-  before_action :set_event, only: [:show, :create]
+  before_action :set_candidate, only: [:accept_trigger]
+  before_action :set_event, only: [:show, :create, :accept_trigger]
 
   respond_to :html
 
@@ -14,15 +14,15 @@ class CandidatesController < ApplicationController
   end
 
   def accept_trigger
-    @candidate.status = "accepted"
-    @candidate.save
-    redirect_to(:back)
-  end
-
-  def decline_trigger
-    @candidate.status = "declined"
-    @candidate.save
-    redirect_to(:back)
+    @candidates = Candidate.where(user_id: current_user).where(event_id: @event).order(created_at: :desc).page(params[:page])
+    if !get_status.nil?
+      @candidate.status = get_status
+      @candidate.save
+      respond_to do |format|
+        format.html { redirect_to(:back) }
+        format.js { render :layout => false }
+      end
+    end
   end
 
   def show
@@ -39,5 +39,14 @@ class CandidatesController < ApplicationController
     def set_candidate
         @candidate = Candidate.find(params[:id])
     end
+
+    def get_status
+      if params[:status] == "accept"
+        status = "accepted"
+      elsif params[:status] == "decline"
+        status = "declined"
+      end
+      return status
+    end 
 
 end

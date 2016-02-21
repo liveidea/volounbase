@@ -68,7 +68,6 @@ Rails.application.routes.draw do
     get "invites", to: "candidates#show"
     resources :candidates, only: [:create, :show] do
       put :accept_trigger, on: :member
-      put :decline_trigger, on: :member
     end
   end
 
