@@ -2,7 +2,11 @@
   %p#notice= notice
   .clearfix.py3
     .col.col-3.px2
-      %img{:alt => "", :src => @project.cover.url(:medium)}/
+      - if @project.cover.url(:large)
+        .img-wrap
+          = link_to "#{image_tag(@project.cover.url(:medium))}<span class='typcn typcn-zoom-in-outline'><span>".html_safe, @project.cover.url(:large), class: "js-image-zoom hover-ico"
+      - else
+        %img{:alt => "", :src => @project.cover.url(:medium)}/
     .col.col-9.px2
       %div
         Created at 

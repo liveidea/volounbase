@@ -1,5 +1,8 @@
 function initScripts(){
 
+  // ProgerssBar
+  Turbolinks.enableProgressBar();
+
   var initDatePicker = function() {
 
     $(".datepicker").datetimepicker({
@@ -13,7 +16,8 @@ function initScripts(){
     $(".datepicker-date").datetimepicker({
       format:'d.m.Y',
       mask: true,
-      timepicker: false,
+      timepicker: false
+      // TODO: add date now
     });    
 
   }
@@ -34,7 +38,7 @@ function initScripts(){
     e.preventDefault();
   });
 
-  // Confirm modal | TODO: Some BUGS, when delete to offen
+  // Confirm modal
   //User click confirm button 
   $('body').on('confirm', function (event) {
     var element = $(event.target);
@@ -47,21 +51,35 @@ function initScripts(){
         type: 'inline',
     })
 
-    // cancel
+    // User click cancel
     $('body').on('click', '.js-popup-modal-dismiss', function (e) {
       e.preventDefault();
       $.magnificPopup.close();
     });  
 
-    // accept
+    // User click ok
     $('body').on('click', '.js-popup-modal-accept', function (e) {
-      // User hits OK
       element.data("confirm", null);
       element.trigger("click.rails");
       e.preventDefault();
       $.magnificPopup.close();
     });      
     return false;
+  });
+
+  // Magnific image zoom
+  $('.js-image-zoom').magnificPopup({
+    type: 'image',
+    closeOnContentClick: true,
+    closeBtnInside: false,
+    mainClass: 'mfp-no-margins mfp-with-zoom',
+    image: {
+      verticalFit: true
+    },
+    zoom: {
+      enabled: true,
+      duration: 300
+    }
   });
 
 }

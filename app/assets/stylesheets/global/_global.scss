@@ -85,6 +85,28 @@ select {
 .page-main {
   padding: 100px 0px 40px 0px;
 }
+.hover-ico {
+  display: block;
+  .typcn {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    font-size: 40px;
+    transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+    transform: scale(0.6);
+    opacity: 0;
+    visibility: hidden;
+    color: #fff;
+    margin: -20px;
+  }
+  &:hover {
+    .typcn {
+      transform: scale(1);
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
 
 .img-wrap {
   position: relative;
@@ -184,4 +206,9 @@ select {
   .btn {
     margin: 0px 5px;
   }
+}
+
+html.turbolinks-progress-bar::before {
+  background-color: rgba(0, 116, 217, 0.5) !important;
+  height: 2px !important;
 }
