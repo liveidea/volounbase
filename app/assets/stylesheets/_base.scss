@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic&subset=latin,cyrillic,cyrillic-ext);
+
 // Medida query
 $media40em: 40em;
 $media50em: 52em;
@@ -9,7 +11,7 @@ $media60em: 64em;
 
 // Colors
 $green: #2ecc40;
-$base_font_family: 'Helvetica Neue', Helvetica, 'Arial', sans-serif;
+$base_font_family: 'PT Sans', 'Helvetica Neue', Helvetica, 'Arial', sans-serif;
 
 // 
 $footer_height: 85px;

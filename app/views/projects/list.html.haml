@@ -4,7 +4,8 @@
     .py1
       .clearfix.border-bottom.py1
         .col.col-2.px2
-          %img{:alt => "", :src => project.cover.url(:medium)}/
+          .img-wrap
+            = link_to "#{image_tag(project.cover.url(:medium))}".html_safe, project
         .px2.col.col-3
           %small.date
             = project.created_at
@@ -16,13 +17,8 @@
           = project.description
           
         .right
-          %small
-            = link_to ' Show', project, class: 'typcn typcn-eye-outline green'
-            %br/
-            = link_to ' Edit', edit_project_path(project), class: 'typcn typcn-pencil green'
-            %br/
-            = link_to ' Destroy', project, method: :delete, data: { confirm: 'Are you sure?' }, class: 'typcn typcn-times red'
-            %br/
+          = link_to ' Edit', edit_project_path(project), class: 'typcn typcn-pencil green btn'
+          = link_to ' View', project, class: 'typcn typcn-eye-outline green btn btn-outline'
 .panel-add.bg-white.py2
   .container.white
     = link_to 'Add Project', new_project_path, {:class=>"btn btn-primary bg-green right"}

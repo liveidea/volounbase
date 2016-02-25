@@ -5,7 +5,7 @@
     = @event.id
   #items
     - @candidates.each do |candidate|
-      .clearfix.py1
+      .clearfix.py1.border-top
         .col.col-3.px2
           Candidate
           = candidate.user_id
@@ -22,4 +22,3 @@
             = link_to '<span class="typcn typcn-tick"></span> Accept'.html_safe, accept_trigger_event_candidate_path(@event, candidate, status: "accept"), method: :put, class: 'btn btn-outline btn-primary bg-green', remote: true
     = paginate @candidates
 
-    .clearfix.border-bottom.py1

@@ -66,7 +66,7 @@ Rails.application.routes.draw do
 
   resources :events do
     get "invites", to: "candidates#show"
-    resources :candidates, only: [:create, :show] do
+    resources :candidates, only: [:create, :show, :destroy] do
       put :accept_trigger, on: :member
     end
   end

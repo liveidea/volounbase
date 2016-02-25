@@ -14,6 +14,10 @@ class Event < ActiveRecord::Base
 
   validates :status, :presence => true, :inclusion => { :in => STATUSES }
 
+  def is_current_user_candidate( user_id )
+    Candidate.where(event:self).where(user_id:user_id).empty?
+  end
+
   private
     def start_date_is_valid_datetime
       errors.add(:start_date, 'must be a valid datetime') if ((DateTime.parse(start_date.to_s) rescue ArgumentError) == ArgumentError)
