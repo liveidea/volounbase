@@ -23,10 +23,22 @@ function initScripts(){
   }
 
   initDatePicker();
-
+  // TODO: Have some bug can remove last event!!!
+  function isEventLast(){
+    if($('#event_fields .event-row').length === 1) {
+      $('#event_fields').find('.js-remove-field').hide();
+    }
+    else {
+      $('#event_fields').find('.js-remove-field').show();
+    }
+  }
+  isEventLast()
+  
   $('body').on('click', '.js-remove-field', function(e){
+    
     $(this).prev('input[type=hidden]').val('1');
-    $(this).parents('.event-row').hide();
+    $(this).parents('.event-row').remove();
+    isEventLast();
     e.preventDefault();
   });
 
@@ -35,6 +47,7 @@ function initScripts(){
     var regexp = new RegExp("new_" + $(this).data("association"), "g")
     $("#event_fields").append($(this).data("fields").replace(regexp, new_id))
     initDatePicker();
+    isEventLast();
     e.preventDefault();
   });
 
@@ -62,7 +75,9 @@ function initScripts(){
       element.data("confirm", null);
       element.trigger("click.rails");
       e.preventDefault();
-      $.magnificPopup.close();
+
+      // Dont need close popup page reload
+      // $.magnificPopup.close();
     });      
     return false;
   });

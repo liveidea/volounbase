@@ -48,10 +48,20 @@ a {
 
 .btn {
   font-weight: 500;
-  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  transition: box-shadow 0.2s ease-in-out, color 0.2s ease-in-out;
   &:focus {
     box-shadow: none;
   }
+  .typcn {
+    font-size: 18px;
+    margin: -2px 0;
+    display: inline-block;
+    margin: -2px 0 -2px -5px;
+    &.right-ico {
+      margin: -2px -5px -2px 0;
+    }
+  }
+  
 }
 
 h1, h2, h3, h4, h5 {
@@ -211,4 +221,70 @@ select {
 html.turbolinks-progress-bar::before {
   background-color: rgba(0, 116, 217, 0.5) !important;
   height: 2px !important;
+}
+
+#notice {
+  text-align: center;
+}
+
+.select-field-wrap {
+  position: relative;
+  border-radius: 3px;
+  overflow: hidden;
+  cursor: pointer;
+  background: #fff;  
+  select {
+    width: 100%;
+    height: 2.25rem;
+    padding: 0 0.5rem;
+    vertical-align: middle;    
+  }
+  .typcn {
+    position: absolute;
+    right: 0;
+    z-index: 2;
+    pointer-events: none;
+    margin: 10px;
+    margin: 2px 9px;
+    font-size: 20px;
+  }
+}
+.file-field-wrap {
+  position: relative;
+  border-radius: 3px;
+  overflow: hidden;
+  cursor: pointer;
+  &:hover {
+    input {
+      box-shadow: 0 0 0 20rem rgba(0, 0, 0, 0.063) inset;
+    }
+  }
+  .typcn {
+    position: absolute;
+    left: 0;
+    z-index: 2;
+    pointer-events: none;
+    color: #fff;
+    margin: 10px;
+    margin: 2px 9px;
+    font-size: 20px;
+  }
+  input {
+    width: 100%;
+    height: 2.25rem;
+    padding: 0 0.5rem;
+    vertical-align: middle;   
+  }
+  &:before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    content: 'Upload';
+    color: #fff;
+    padding: 6px 20px 6px 30px;
+    background-color: #2ecc40;
+    pointer-events: none;
+    z-index: 1;
+  }
 }
