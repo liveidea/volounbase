@@ -11,10 +11,11 @@
     .col.col-4.px2
       .field-row
         = f.label :cover
-        %br/
-        %img{:alt => "", :src => @project.cover.url(:medium)}/
-        %br/
-        = f.file_field :cover, :class => "field"
+        .my2
+          %img{:alt => "", :src => @project.cover.url(:medium)}/
+        .file-field-wrap
+          %span.typcn.typcn-cloud-storage
+          = f.file_field :cover, :class => "field"
     .col.col-6.px2
       .field-row
         = f.label :title
@@ -32,5 +33,5 @@
   .panel-add.bg-white.py2
     .container.white
       .actions.right
-        = link_to_add_fields "Add event", f, :events, "js-add-field typcn typcn-document-add btn btn-outline green"
+        = link_to_add_fields "<span class='typcn typcn-document-add'></span>Add event".html_safe, f, :events, "js-add-field btn btn-outline green"
         = f.submit :class => "btn btn-primary bg-green"

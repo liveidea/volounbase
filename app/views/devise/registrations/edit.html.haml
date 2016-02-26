@@ -9,7 +9,9 @@
         .field-row
           = f.label :avatar
           %br/
-          = f.file_field :avatar, :class => 'field'
+          .file-field-wrap
+            %span.typcn.typcn-cloud-storage
+            = f.file_field :avatar, :class => 'field'
       .col.col-8.px2
         %div
           .field-row

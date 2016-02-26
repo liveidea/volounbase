@@ -20,9 +20,8 @@
       .col.col-2
         .field-row
           = f.label :status
-          %br/
-          = f.select :status, options_for_select(Event::STATUSES)
-          %br/
+          .select-field-wrap
+            = f.select :status, options_for_select(Event::STATUSES)
       .col.col-1
         .right
           = f.hidden_field :_destroy
