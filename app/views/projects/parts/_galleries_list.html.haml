@@ -1,7 +1,11 @@
-%h3.px2.m2 Galleries
 - @project.galleries.map do |gallery|
-  .clearfix.rounded.py1
+  .clearfix.rounded.py1.px2
     %h4
-      Gallery for
       = gallery.title
-    = gallery.description
+    %div
+      = gallery.description
+    .clearfix.js-gallery
+      - gallery.photos.each do |photo|
+        .col.col-2.p1
+          .img-wrap
+            = link_to "#{image_tag(photo.image.url(:medium))}<span class='typcn typcn-zoom-in-outline'><span>".html_safe, photo.image.url(:large), class: "image-zoom hover-ico"

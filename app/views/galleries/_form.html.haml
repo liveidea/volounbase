@@ -1,4 +1,4 @@
-= form_for [@project, @gallery] do |f|
+= form_for [@project, @gallery], :html => { :multipart => true } do |f|
   - if @gallery.errors.any?
     #error_explanation
       %h2
@@ -7,13 +7,20 @@
       %ul
         - @gallery.errors.full_messages.each do |message|
           %li= message
-  .field-row
-    = f.label :title
-    %br/
-    = f.text_field :title, required: true, :class => 'field'
-  .field-row
-    = f.label :description, :required => true
-    %br/
-    = f.text_area :description, :class => "field"
+  .clearfix
+    .col.col-4
+      .field-row
+        = f.label :title
+        %br/
+        = f.text_field :title, required: true, :class => 'field'
+      .field-row
+        = f.label :description, :required => true
+        %br/
+        = f.text_area :description, :class => "field"
+    .col.col-8
+      = f.label :'Upload multi images'
+      .file-field-wrap
+        %span.typcn.typcn-cloud-storage
+        = file_field_tag "images[]", type: :file, multiple: true
   .actions
     = f.submit class: "btn btn-primary bg-green mb2"

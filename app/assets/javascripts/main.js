@@ -97,6 +97,32 @@ function initScripts(){
     }
   });
 
+  // Magnific gallery 
+  var gallery = $('.js-gallery');
+  if (gallery.length) {
+    gallery.each(function() {
+        $(this).magnificPopup({
+            delegate: 'a',
+            type: 'image',
+            gallery: {
+              enabled: true
+            }
+        });
+    });
+  }
+
+  // Tabs 
+  $('body').on('click', '.js-tab-link', function (e) {
+    $('.js-tab-link.active').removeClass('active');
+    var active = $(this).data("link");
+    $(this).addClass('active')
+    $('.js-tab').hide();
+    console.log(active);
+    $(active).show();
+    e.preventDefault();
+  });  
+
+
 }
 
 $(document).ready(function(){

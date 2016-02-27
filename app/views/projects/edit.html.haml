@@ -3,20 +3,29 @@
     %h1.px2 Edit Project
     = render 'form'
   .panel-bottom.bg-white.py2
-    .container.white
+    .container
       .right
-        = link_to 'Back', projects_path, :class => "btn green"
-        = link_to 'Show', project_path, :class => "btn green"
-        = link_to ' Destroy', project_path, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn typcn typcn-times red' 
+        .gray.display-inline.btn
+          Project panel: 
+        = link_to '<span class="typcn typcn-chevron-left"></span>Back'.html_safe, projects_path, :class => "btn green"
+        = link_to '<span class="typcn typcn-eye-outline"></span> Show'.html_safe, project_path, :class => "btn green"
+        = link_to '<span class="typcn typcn-times red"></span> Destroy'.html_safe, project_path, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn red' 
 
-  #galleries.border-bottom
-    .p2
-      %h3 Galleries
-      - @project.galleries.each do |gallery|
-        .clearfix
-          .col-9.col
-            = gallery.title
-            = gallery.description
-          .right
-            = link_to "<span class='typcn typcn-pencil'></span> Edit".html_safe, edit_project_gallery_path(@project, gallery), {:class=>"btn green"}
-      = link_to "Add Gallery", new_project_gallery_path(@project), {:class=>"btn btn-primary bg-green"}
+  #galleries.js-tab.px2
+    %h3 Galleries
+    - @project.galleries.each do |gallery|
+      .clearfix
+        .col-10.col
+          = gallery.title
+          = gallery.description
+          .clearfix.js-gallery
+            - gallery.photos.each do |photo|
+              .col.col-2.p1
+                .img-wrap
+                  = link_to "#{image_tag(photo.image.url(:medium))}<span class='typcn typcn-zoom-in-outline'><span>".html_safe, photo.image.url(:large), class: "image-zoom hover-ico"          
+        .right
+          = link_to "<span class='typcn typcn-pencil'></span> Edit".html_safe, edit_project_gallery_path(@project, gallery), {:class=>"btn green"}
+          %br/
+          = link_to '<span class="typcn typcn-times red"> Destroy'.html_safe, project_gallery_path(@project, gallery), method: :delete, data: { confirm: 'Are you sure?' }, :class=>"btn red"
+    .my2
+      = link_to "Add Gallery", new_project_gallery_path(@project), {:class=>"btn btn-primary bg-green right"}

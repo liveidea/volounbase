@@ -1,5 +1,5 @@
 class AddGalleyToPhotos < ActiveRecord::Migration
   def change
-  	add_column :photos, :galley_id, :integer
+  	add_column :photos, :gallery_id, :integer
   end
 end

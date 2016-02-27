@@ -12,10 +12,9 @@ class Project < ActiveRecord::Base
 
   accepts_nested_attributes_for :events, allow_destroy: true
 
-  validates_attachment_content_type :cover, content_type: /\Aimage\/.*\Z/
-
   paginates_per 9
 
+  validates_attachment_content_type :cover, content_type: /\Aimage\/.*\Z/
   validates :title, :cover, presence: true
   validates_associated :events
 

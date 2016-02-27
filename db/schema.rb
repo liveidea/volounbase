@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 20160227155532) do
     t.string   "description"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
-    t.integer  "galley_id"
+    t.integer  "gallery_id"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"

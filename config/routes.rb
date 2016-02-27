@@ -65,6 +65,10 @@ Rails.application.routes.draw do
     concerns :paginatable
   end
 
+  resources :galleries do
+    resources :photos, only: [:create, :show, :destroy, :new, :edit]
+  end
+
   resources :events do
     get "invites", to: "candidates#show"
     resources :candidates, only: [:create, :show, :destroy] do

@@ -7,7 +7,7 @@
       %ul
         - @project.errors.full_messages.each do |message|
           %li= message
-  #general_options.clearfix
+  #general_options.clearfix.js-tab.js-tab-active
     %h3.px2 General
     .col.col-4.px2
       .field-row
@@ -26,19 +26,29 @@
         = f.label :description, :required => true
         %br/
         = f.text_area :description, :class => "field"
-  #event_fields.event_fields.p2
-    %h3 Events
-    = f.fields_for :events do |event|
-      = render 'event_fields', f: event
-  .my2
-    .clearfix
-      = link_to_add_fields "<span class='typcn typcn-document-add'></span>Add event".html_safe, f, :events, "js-add-field btn btn-outline green right"
-
-    %hr/ 
+  #events.js-tab
+    .px2
+      #event_fields.event_fields
+        %h3 Events
+        = f.fields_for :events do |event|
+          = render 'event_fields', f: event
+      .my2
+        .clearfix
+          = link_to_add_fields "<span class='typcn typcn-document-add'></span>Add event".html_safe, f, :events, "js-add-field btn btn-primary bg-green right"
 
   
   .panel-add.bg-white.py2
     .container.white
+      .left.clearfix.blue.tab-panel
+        %button.left.btn.green.btn-outline.x-group-item.rounded-left.js-tab-link.active{:type => "button", "data-link" => "#general_options"} 
+          %span.typcn.typcn-edit
+          General
+        %button.left.btn.green.btn-outline.x-group-item.not-rounded.js-tab-link{:type => "button", "data-link" => "#events"} 
+          %span.typcn.typcn-calendar
+          Events
+        %button.left.btn.green.btn-outline.x-group-item.rounded-right.js-tab-link{:type => "button", "data-link" => "#galleries"} 
+          %span.typcn.typcn-image
+          Galleries
       .actions.right
         = f.submit :class => "btn btn-primary bg-green"
 

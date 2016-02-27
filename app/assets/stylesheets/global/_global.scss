@@ -52,6 +52,11 @@ a {
   &:focus {
     box-shadow: none;
   }
+  &.active {
+    color: #fff;
+    background-color: #2ecc40;
+    border-color: #2ecc40;
+  }
   .typcn {
     font-size: 18px;
     margin: -2px 0;
@@ -295,3 +300,13 @@ html.turbolinks-progress-bar::before {
   margin: 0 auto 20px;
   color: #212121;
 }
+
+
+
+// Tabs
+.js-tab {
+  display: none;
+  &.js-tab-active {
+    display: block;
+  }
+} 
