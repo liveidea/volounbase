@@ -1,0 +1,19 @@
+= form_for [@project, @gallery] do |f|
+  - if @gallery.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@gallery.errors.count, "error")
+        prohibited this gallery from being saved:
+      %ul
+        - @gallery.errors.full_messages.each do |message|
+          %li= message
+  .field-row
+    = f.label :title
+    %br/
+    = f.text_field :title, required: true, :class => 'field'
+  .field-row
+    = f.label :description, :required => true
+    %br/
+    = f.text_area :description, :class => "field"
+  .actions
+    = f.submit class: "btn btn-primary bg-green mb2"

@@ -288,3 +288,10 @@ html.turbolinks-progress-bar::before {
     z-index: 1;
   }
 }
+
+.alert {
+  text-align: center;
+  width: 450px;
+  margin: 0 auto 20px;
+  color: #212121;
+}

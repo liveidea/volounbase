@@ -61,6 +61,7 @@ Rails.application.routes.draw do
   resources :projects do
     get :list, on: :collection
     resources :events
+    resources :galleries, only: [:create, :show, :destroy, :new, :edit]
     concerns :paginatable
   end
 

@@ -1,0 +1,7 @@
+%h3.px2.m2 Galleries
+- @project.galleries.map do |gallery|
+  .clearfix.rounded.py1
+    %h4
+      Gallery for
+      = gallery.title
+    = gallery.description

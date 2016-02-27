@@ -7,7 +7,8 @@
       %ul
         - @project.errors.full_messages.each do |message|
           %li= message
-  .clearfix
+  #general_options.clearfix
+    %h3.px2 General
     .col.col-4.px2
       .field-row
         = f.label :cover
@@ -25,13 +26,20 @@
         = f.label :description, :required => true
         %br/
         = f.text_area :description, :class => "field"
-  #event_fields.event_fields.py2
+  #event_fields.event_fields.p2
     %h3 Events
     = f.fields_for :events do |event|
       = render 'event_fields', f: event
+  .my2
+    .clearfix
+      = link_to_add_fields "<span class='typcn typcn-document-add'></span>Add event".html_safe, f, :events, "js-add-field btn btn-outline green right"
 
+    %hr/ 
+
+  
   .panel-add.bg-white.py2
     .container.white
       .actions.right
-        = link_to_add_fields "<span class='typcn typcn-document-add'></span>Add event".html_safe, f, :events, "js-add-field btn btn-outline green"
         = f.submit :class => "btn btn-primary bg-green"
+
+

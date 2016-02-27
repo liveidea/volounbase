@@ -1,0 +1,32 @@
+%h3.px2 Events list
+- @project.events.map do |event|
+  .m2
+    .bg-light-gray.clearfix.rounded.px2.py1
+      .col.col-3.px2
+        %small.gray.gray
+          Note :
+        %br/
+        = event.note
+      .col.col-3.px2
+        %small.gray.gray
+          Start date:
+          %br/
+        = (event.start_date.nil?) ? '' : event.start_date.strftime("%d.%m.%Y %H:%I")
+      .col.col-3.px2
+        %small.gray.gray
+          End date:
+          %br/
+        = (event.end_date.nil?) ? '' : event.end_date.strftime("%d.%m.%Y %H:%I")
+      .col-3.col
+        .right
+          - if is_user_organizer
+            - if event.candidates.count > 0
+              = link_to "Invites (#{event.candidates.count})", event_invites_path(event), class: 'btn btn-primary bg-green'
+          - else
+            - if event.is_current_user_candidate(current_user)
+              = link_to ' Join to event', event_candidates_path(event), method: :post, class: 'btn btn-primary bg-green typcn typcn-arrow-forward'
+            - else
+              / TODO: need optimize this code | UnRegister Button
+              - event.candidates.map do |candidate|
+                - if candidate.user_id == current_user.id
+                  = link_to ' Leave event', event_candidate_path(event, candidate), method: :delete, class: 'btn btn-outline red typcn typcn-arrow-back',  data: { confirm: 'Are you sure?'}

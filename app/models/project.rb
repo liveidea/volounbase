@@ -1,6 +1,10 @@
 class Project < ActiveRecord::Base
+  def to_param
+    "#{id}-#{title.parameterize}"
+  end  
   include Paperclip::Glue
   has_many :events, dependent: :destroy
+  has_many :galleries, dependent: :destroy
   belongs_to :user
   has_attached_file :cover, styles: { medium: "400x300#", large: "1920x1080>" }, default_url: "/images/missing/img.png",
     url: "/images/projects/:attachment/:id/:style_:filename",

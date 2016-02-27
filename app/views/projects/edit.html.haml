@@ -1,8 +1,22 @@
 - if is_user_organizer
   .container
-    %h1 Edit Project
+    %h1.px2 Edit Project
     = render 'form'
-    .mb2
-      = link_to 'Back', projects_path, :class => "btn green"
-      = link_to 'Show', project_path, :class => "btn green"
-      = link_to ' Destroy', project_path, method: :delete, data: { confirm: 'Are you sure?' }, class: 'typcn typcn-times red' 
+  .panel-bottom.bg-white.py2
+    .container.white
+      .right
+        = link_to 'Back', projects_path, :class => "btn green"
+        = link_to 'Show', project_path, :class => "btn green"
+        = link_to ' Destroy', project_path, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn typcn typcn-times red' 
+
+  #galleries.border-bottom
+    .p2
+      %h3 Galleries
+      - @project.galleries.each do |gallery|
+        .clearfix
+          .col-9.col
+            = gallery.title
+            = gallery.description
+          .right
+            = link_to "<span class='typcn typcn-pencil'></span> Edit".html_safe, edit_project_gallery_path(@project, gallery), {:class=>"btn green"}
+      = link_to "Add Gallery", new_project_gallery_path(@project), {:class=>"btn btn-primary bg-green"}

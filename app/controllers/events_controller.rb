@@ -31,16 +31,16 @@ class EventsController < ApplicationController
 
   def destroy
     @event.destroy
-    redirect_to orders_path
+    redirect_to(:back)
   end
 
   private
     def set_event
-        @event = Event.find(params[:id])
+      @event = Event.find(params[:id])
     end
 
     def set_project
-        @project = Project.find(params[:project_id])
+      @project = Project.find(params[:project_id])
     end
 
     def event_params

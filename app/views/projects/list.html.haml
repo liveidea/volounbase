@@ -17,8 +17,8 @@
           = project.description
           
         .right
-          = link_to ' Edit', edit_project_path(project), class: 'typcn typcn-pencil green btn'
-          = link_to ' View', project, class: 'typcn typcn-eye-outline green btn btn-outline'
+          = link_to '<span class="typcn typcn-pencil"></span> Edit'.html_safe, edit_project_path(project), class: 'green btn'
+          = link_to '<span class="typcn typcn-eye-outline"></span> View'.html_safe, project, class: 'green btn btn-outline'
 .panel-add.bg-white.py2
   .container.white
     = link_to 'Add Project', new_project_path, {:class=>"btn btn-primary bg-green right"}
