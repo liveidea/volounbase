@@ -14,20 +14,10 @@ class GalleriesController < ApplicationController
     respond_with(@project, @gallery)
   end
 
-  # def create
-  #   @gallery = Gallery.new(gallery_params)
-  #   @gallery.project = @project
-  #   if @gallery.save
-  #     redirect_to [:edit, @project, @gallery], notice: 'Gallery was successfully created.'
-  #   else
-  #     render :new
-  #   end
-  # end
-
   def create
     @gallery = Gallery.new(gallery_params)
     @gallery.project = @project
-    
+
     respond_to do |format|
       if @gallery.save
        

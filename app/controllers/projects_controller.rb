@@ -9,7 +9,7 @@ class ProjectsController < ApplicationController
     respond_with(@projects)
   end
 
-  # User owner list
+  # User created projects list | as organizer
   def list
     @projects = Project.where(user:current_user).order(created_at: :desc).page(params[:page])
     respond_with(@projects)

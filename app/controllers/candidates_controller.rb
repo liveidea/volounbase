@@ -11,6 +11,13 @@ class CandidatesController < ApplicationController
     @candidate.event = @event
     @candidate.status = "waiting"
     @candidate.save
+
+    # To organizer
+    @organizer = @event.project.user
+    UserNotifier.new_user_register_to_event(@organizer, @event.project).deliver_now
+
+    # To volounteer
+    UserNotifier.register_to_event(@candidate.user, @event.project).deliver_now
     redirect_to(:back)
   end
 
@@ -24,10 +31,18 @@ class CandidatesController < ApplicationController
     if !get_status.nil?
       @candidate.status = get_status
       @candidate.save
+
       respond_to do |format|
         format.html { redirect_to(:back) }
         format.js { render :layout => false }
       end
+
+      # Send mail # To volounteer
+      if get_status == 'accepted'
+        UserNotifier.accept_user_register_to_event(@candidate.user, @event.project).deliver_now
+      elsif get_status == "declined"
+        UserNotifier.decline_user_register_to_event(@candidate.user, @event.project).deliver_now
+      end      
     end
   end
 
