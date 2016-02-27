@@ -7,7 +7,7 @@ class GalleriesController < ApplicationController
 
   def new
     @gallery = Gallery.new
-    respond_with(@gallery, @project)
+    respond_with(@project, @gallery)
   end
 
   def edit
