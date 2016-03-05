@@ -1,0 +1,45 @@
+.overflow-hidden.rounded.mb3
+  %section
+    %h2.mt0.mb2.h1.center
+      Events
+    #calendar
+
+    / TODO: Need find better solution for javascript formating !!!
+    %script
+      $('#calendar').fullCalendar({
+      header: {
+      left: 'prev',
+      center: 'title',
+      right: 'next'
+      },
+      height: 'auto',
+      firstDay: 1,
+      lang: $('html').attr('lang'),
+      buttonText: {
+      },
+      events: [
+      - @events.each do |event|
+        {
+        title: '= #{event.project.title}',
+        start: '#{event.start_date.strftime("%Y-%m-%d")}',
+        allDay: false,
+        img_url: '#{image_tag(event.project.cover.url(:medium))}',
+        url: '#{url_for(event.project)}',
+        },
+
+
+      ],
+      eventRender: function(event, element) {
+      element.find(".fc-day-grid-event");
+      var new_description = '<div class="calendar-item'+event.terms+'">' + event.img_url + '<div>';
+      element.prepend(new_description);
+
+      var cat_name = $('.filter-calendar-btns').find('li.active').data('filter');
+      $('.filter-calendar-btns').find('li.active').removeClass('active');
+      if (cat_name == '*') {
+      $('.calendar-item').parent('a').removeClass('hidden-item');
+      }
+      $('.calendar-item').parent('a').addClass('hidden-item');
+      $(cat_name).parent('a').removeClass('hidden-item');
+      }
+      });

@@ -15,5 +15,7 @@
 //= require turbolinks
 //= require plugins/jquery.datetimepicker
 //= require plugins/jquery.magnific-popup
+//= require plugins/moment.min
+//= require plugins/fullcalendar
 //= require main
 
