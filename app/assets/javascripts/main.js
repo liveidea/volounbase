@@ -9,6 +9,7 @@ function initScripts(){
       format:'d.m.Y H:i',
       mask: true,
       step: 30,
+      startDate:new Date()
     });
 
     var d = new Date(),
