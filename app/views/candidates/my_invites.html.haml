@@ -45,4 +45,4 @@
       -if this_list?("pending") || this_list?("accepted")
         .right.px2
           %small
-            = link_to '<span class="typcn typcn-delete-outline"></span> Decline'.html_safe, accept_trigger_event_candidate_path(candidate.event, candidate, status: "decline"), method: :put, class: 'btn btn-outline red js-remove', data: {confirm: "Are you sure?"}
+            = link_to '<span class="typcn typcn-arrow-back"></span> Leave ivent'.html_safe, accept_trigger_event_candidate_path(candidate.event, candidate, status: "decline"), method: :put, class: 'btn btn-outline red js-remove', data: {confirm: "Are you sure?"}
