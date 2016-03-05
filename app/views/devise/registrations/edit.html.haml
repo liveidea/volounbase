@@ -5,15 +5,15 @@
     = devise_error_messages!
     .clearfix
       .col.col-4
-        %smallmg{:alt => "", :src => current_user.avatar.url(:thumb)}/
+        %img{:alt => "", :src => current_user.avatar.url(:thumb)}/ 
         .field-row
           = f.label :avatar
           %br/
           .file-field-wrap
             %span.typcn.typcn-cloud-storage
             = f.file_field :avatar, :class => 'field'
-      .col.col-8.px2
-        %div
+      .col.col-4.px2
+        %div.py2
           .field-row
             = f.label :email
             %br/
@@ -21,25 +21,28 @@
           - if devise_mapping.confirmable? && resource.pending_reconfirmation?
             %div
               Currently waiting confirmation for: #{resource.unconfirmed_email}
-          .field-row
-            = f.label :password
-            %small (leave blank if you don't want to change it)
-            %br/
-            = f.password_field :password, autocomplete: "off", :class => 'field'
-          .field-row
-            = f.label :password_confirmation
-            %br/
-            = f.password_field :password_confirmation, autocomplete: "off", :class => 'field'
-          .field-row
-            = f.label :current_password
-            %small (we need your current password to confirm your changes)
-            %br/
-            = f.password_field :current_password, autocomplete: "off", :class => 'field'
-          .additional.border-top.py3
+          / .field-row
+          /   = f.label :password
+          /   %small (leave blank if you don't want to change it)
+          /   %br/
+          /   = f.password_field :password, autocomplete: "off", :class => 'field'
+          / .field-row
+          /   = f.label :password_confirmation
+          /   %br/
+          /   = f.password_field :password_confirmation, autocomplete: "off", :class => 'field'
+          / .field-row
+          /   = f.label :current_password
+          /   %small (we need your current password to confirm your changes)
+          /   %br/
+          /   = f.password_field :current_password, autocomplete: "off", :class => 'field'          
+          .additional
             .field-row
               Username
               %br/
               = f.text_field :username, autocomplete: "off", :class => 'field'
+      .col.col-4.px2
+        %div
+          .border-bottom.py2
             .field-row
               First name
               %br/
@@ -48,18 +51,21 @@
               Last name
               %br/
               = f.text_field :last_name, autocomplete: "off", :class => 'field'
-            .field-row
-              Gender
-              %br/
-              = f.text_field :gender, autocomplete: "off", :class => 'field'
-            .field-row
-              Date of birth
-              %br/
-              = f.text_field :date_of_birth, autocomplete: "off", :class => 'field datepicker-date'
+          .field-row
+            Gender
+            %br/
+            = f.radio_button(:gender, "male")
+            = label(:user_gender, "male")
+            = f.radio_button(:gender, "female")
+            = label(:user_gender, "female")
+          .field-row
+            Date of birth
+            %br/
+            = f.date_field :date_of_birth, autocomplete: "off", :class => 'field datepicker-date'
         .panel-add.bg-white.py2
           .container.white
             .actions.right
               = f.submit "Update", :class => "btn btn-primary bg-green"
-        %h3 Cancel my account
-        %p.border-top
-          Unhappy? #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, :class=>"btn green"}
+/ %h3 Cancel my account
+/ %p.border-top
+/   Unhappy? #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, :class=>"btn green"}
