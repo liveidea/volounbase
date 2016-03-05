@@ -16,7 +16,7 @@
         = @project.title
       %div
         %strong
-        = @project.description
+        = @project.try(:description)
     .col.col-3.px2.bg-light-gray
       %h4
         Organizer
