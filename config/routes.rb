@@ -54,6 +54,7 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
   concern :paginatable do
     get '(page/:page)', :action => :index, :on => :collection, :as => ''
   end
@@ -76,4 +77,5 @@ Rails.application.routes.draw do
     end
   end
 
+  get :my_invites, to: "candidates#my_invites"
 end

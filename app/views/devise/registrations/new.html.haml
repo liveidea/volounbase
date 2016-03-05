@@ -6,6 +6,21 @@
       = f.label :email
       %br/
       = f.email_field :email, autofocus: true, :class => 'field'
+
+    .additional.border-top.py3
+      .field-row
+        Username
+        %br/
+        = f.text_field :username, autocomplete: "off", :class => 'field'
+      .field-row
+        First name
+        %br/
+        = f.text_field :first_name, autocomplete: "off", :class => 'field'
+      .field-row
+        Last name
+        %br/
+        = f.text_field :last_name, autocomplete: "off", :class => 'field'
+
     .field-row
       = f.label :password
       - if @minimum_password_length

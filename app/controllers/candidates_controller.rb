@@ -42,12 +42,26 @@ class CandidatesController < ApplicationController
         UserNotifier.accept_user_register_to_event(@candidate.user, @event.project).deliver_now
       elsif get_status == "declined"
         UserNotifier.decline_user_register_to_event(@candidate.user, @event.project).deliver_now
-      end      
+      end
     end
   end
 
   def show
     @candidates = Candidate.where(event_id: @event).order(created_at: :desc).page(params[:page])
+    respond_with(@candidate, @event)
+  end
+
+  def my_invites
+    if accepted_list?
+      status = "accepted"
+    elsif declined_list?
+      status = "declined"
+    elsif pending_list?
+      status = "waiting"
+    else
+      status = ""
+    end
+    @candidates = Candidate.where(user_id: current_user, status: status)
     respond_with(@candidate, @event)
   end
 
@@ -68,6 +82,18 @@ class CandidatesController < ApplicationController
         status = "declined"
       end
       return status
-    end 
+    end
+
+    def accepted_list?
+      return ( params[:list] == "accepted" ) ? true : false;
+    end
+
+    def declined_list?
+      return ( params[:list] == "declined" ) ? true : false;
+    end
+
+    def pending_list?
+      return ( params[:list] == "pending" ) ? true : false;
+    end
 
 end

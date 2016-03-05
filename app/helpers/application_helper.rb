@@ -16,4 +16,8 @@ module ApplicationHelper
     return value
   end
 
+  def is_user_candidate( event )
+    !Candidate.where(event:event, user_id:current_user.id).empty?
+  end
+
 end

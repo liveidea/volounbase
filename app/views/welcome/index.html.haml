@@ -13,9 +13,9 @@
                 = project.title
               .project-descr
                 = project.description
-              = link_to 'Read more <span class="typcn typcn-arrow-right"></span>'.html_safe, project, class: 'btn blue'     
+              = link_to 'Read more <span class="typcn typcn-arrow-right"></span>'.html_safe, project, class: 'btn blue'
     .center.mb3
-      = link_to 'View all projects'.html_safe, projects_path, class: 'btn btn-primary bg-green'            
+      = link_to 'View all projects'.html_safe, projects_path, class: 'btn btn-primary bg-green'
 %hr/
 .overflow-hidden.rounded
   %section
@@ -24,7 +24,7 @@
         Volounteers
       .clearfix
         - @volounteers.each do |volounteer|
-          .col-3.col.m1
+          .col-3.col.p1
             .bg-light.rounded.clearfix
               .p3.center.volounteer-item.left
                 %img.circle.border{:alt => "", :src => volounteer.avatar(:thumb), :width => "100", :height => "100"}/

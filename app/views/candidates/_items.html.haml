@@ -1,11 +1,9 @@
 - candidates.each do |candidate|
   .clearfix.py1
     .col.col-3.px2
-      Candidate
-      = candidate.user_id
+      = candidate.user.email
     .col.col-3.px2
-      Event id
-      = candidate.event_id
+      = candidate.event.project.title
     .col.col-3.px2
       Status
       %strong

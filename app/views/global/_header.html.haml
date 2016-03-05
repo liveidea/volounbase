@@ -8,12 +8,14 @@
       .right
         - if user_signed_in?
           = link_to 'Projects', projects_path, :class=>"btn green"
-          = link_to 'Projects My', list_projects_path, :class=>"btn green"
+          = link_to 'My Projects', list_projects_path, :class=>"btn green"
+          -if current_user.candidates.any?
+            = link_to 'My Invites', my_invites_path(list: "accepted"), :class=>"btn green"
           .dropdown.relative.inline-block
             %button.btn.green{:type => "button"}
               Profile
               %span.typcn.typcn-arrow-sorted-down.right-ico
-            .dropdown-menu.absolute.right-0.nowrap.bg-white.border.rounded{"data-details" => ""}          
+            .dropdown-menu.absolute.right-0.nowrap.bg-white.border.rounded{"data-details" => ""}
               = link_to '<span class="typcn typcn typcn-pencil"></span> Edit registration'.html_safe, edit_user_registration_path, :class=>"btn green border-bottom block"
               = link_to '<span class="typcn typcn-arrow-back"></span> Logout'.html_safe, destroy_user_session_path, :method => :delete, :class=>"btn green block"
         - else
