@@ -310,3 +310,23 @@ html.turbolinks-progress-bar::before {
     display: block;
   }
 } 
+
+
+// Calendar 
+.fc-state-default {
+  background: #fff;
+  transition: opacity 0.2s ease-in-out;
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.fc-state-default.fc-corner-left,
+.fc-state-default.fc-corner-right {
+  border-radius: 3px;
+}
+
+.fc-day-grid-event {
+  margin: 0;
+  border-radius: 0;
+}
