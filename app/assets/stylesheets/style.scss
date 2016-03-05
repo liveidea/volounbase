@@ -1,8 +1,12 @@
 @import 'base'; // varialble
-@import 'global/header';
-@import 'global/global';
-@import 'global/footer';
 
 // plugins
 @import 'plugins/typicons';
 @import 'plugins/magnific-popup';
+@import 'plugins/fullcalendar';
+
+// layout styles
+@import 'global/header';
+@import 'global/global';
+@import 'global/footer';
+
