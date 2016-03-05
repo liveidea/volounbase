@@ -16,7 +16,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @organizer = User.where(@project.user).first
+    @organizer = @project.user
     respond_with(@project)
   end
 
