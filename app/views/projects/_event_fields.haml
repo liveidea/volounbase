@@ -16,7 +16,6 @@
           = f.label :end_date
           %br/
           = f.text_field :end_date, class: "field datepicker", :required => true, value: (f.object.end_date.nil?) ? '' : f.object.end_date.strftime("%d.%m.%Y %H:%I")
-
       .col.col-2
         .field-row
           = f.label :status

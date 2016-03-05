@@ -7,23 +7,6 @@
     = @event.note
 
   #items
-    -# - @candidates.each do |candidate|
-    -#   .clearfix.py1.border-top
-    -#     .col.col-3.px2
-    -#       Candidate
-    -#       = candidate.user_id
-    -#     .col.col-3.px2
-    -#       Event id
-    -#       = candidate.event_id
-    -#     .col.col-3.px2
-    -#       Status
-    -#       %strong
-    -#         = candidate.status
-    -#     .right.px2
-    -#       %small
-    -#         = link_to '<span class="typcn typcn-delete-outline"></span> Decline'.html_safe, accept_trigger_event_candidate_path(@event, candidate, status: "decline"), method: :put, class: 'btn btn-outline red js-remove', remote: true
-    -#         = link_to '<span class="typcn typcn-tick"></span> Accept'.html_safe, accept_trigger_event_candidate_path(@event, candidate, status: "accept"), method: :put, class: 'btn btn-outline btn-primary bg-green', remote: true
-    -# = paginate @candidates
 
     = render(partial: 'items', locals: {candidates: @candidates, event: @event})
 

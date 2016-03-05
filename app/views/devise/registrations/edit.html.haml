@@ -20,21 +20,7 @@
             = f.email_field :email, autofocus: true
           - if devise_mapping.confirmable? && resource.pending_reconfirmation?
             %div
-              Currently waiting confirmation for: #{resource.unconfirmed_email}
-          / .field-row
-          /   = f.label :password
-          /   %small (leave blank if you don't want to change it)
-          /   %br/
-          /   = f.password_field :password, autocomplete: "off", :class => 'field'
-          / .field-row
-          /   = f.label :password_confirmation
-          /   %br/
-          /   = f.password_field :password_confirmation, autocomplete: "off", :class => 'field'
-          / .field-row
-          /   = f.label :current_password
-          /   %small (we need your current password to confirm your changes)
-          /   %br/
-          /   = f.password_field :current_password, autocomplete: "off", :class => 'field'          
+              Currently waiting confirmation for: #{resource.unconfirmed_email}         
           .additional
             .field-row
               Username
@@ -61,11 +47,8 @@
           .field-row
             Date of birth
             %br/
-            = f.date_field :date_of_birth, autocomplete: "off", :class => 'field datepicker-date'
+            = f.text_field :date_of_birth, autocomplete: "off", :class => 'field datepicker-date'
         .panel-add.bg-white.py2
           .container.white
             .actions.right
               = f.submit "Update", :class => "btn btn-primary bg-green"
-/ %h3 Cancel my account
-/ %p.border-top
-/   Unhappy? #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, :class=>"btn green"}
