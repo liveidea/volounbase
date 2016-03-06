@@ -1,3 +1,4 @@
 == README
+VolounteerFinder - web search service volunteers for charitable projects.
 
 TODO: write readme about
