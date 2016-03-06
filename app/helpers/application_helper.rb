@@ -17,7 +17,7 @@ module ApplicationHelper
   end
 
   def is_user_candidate( event )
-    !Candidate.where(event:event, user_id:current_user.id).empty?
+    !Candidate.where(event:event, user_id:current_user.try(:id)).empty?
   end
 
 end

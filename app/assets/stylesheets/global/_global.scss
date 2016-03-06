@@ -66,7 +66,7 @@ a {
       margin: -2px -5px -2px 0;
     }
   }
-  
+
 }
 
 h1, h2, h3, h4, h5 {
@@ -159,6 +159,13 @@ select {
   }
 }
 
+.project-item {
+  // height: 260px;
+}
+
+.project-descr-wrapper {
+  height: 120px;
+}
 
 #error_explanation {
   color: red;
@@ -205,7 +212,7 @@ select {
       pointer-events: auto;
       z-index: 1;
       visibility: visible;
-    }    
+    }
   }
 }
 
@@ -237,12 +244,12 @@ html.turbolinks-progress-bar::before {
   border-radius: 3px;
   overflow: hidden;
   cursor: pointer;
-  background: #fff;  
+  background: #fff;
   select {
     width: 100%;
     height: 2.25rem;
     padding: 0 0.5rem;
-    vertical-align: middle;    
+    vertical-align: middle;
   }
   .typcn {
     position: absolute;
@@ -278,7 +285,7 @@ html.turbolinks-progress-bar::before {
     width: 100%;
     height: 2.25rem;
     padding: 0 0.5rem;
-    vertical-align: middle;   
+    vertical-align: middle;
   }
   &:before {
     position: absolute;
@@ -312,7 +319,7 @@ html.turbolinks-progress-bar::before {
 }
 
 
-// Calendar 
+// Calendar
 .fc-state-default {
   background: #fff;
   transition: opacity 0.2s ease-in-out;

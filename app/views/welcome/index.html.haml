@@ -12,10 +12,11 @@
             .p2.center.project-item
               .img-wrap
                 = link_to "#{image_tag(project.cover.url(:medium))}".html_safe, project
-              %h3.project-title
-                = project.title
-              .project-descr
-                = project.description
+              .project-descr-wrapper
+                %h3.project-title
+                  = project.title
+                .project-descr
+                  = project.description
               = link_to 'Read more <span class="typcn typcn-arrow-right"></span>'.html_safe, project, class: 'btn blue'
     .center.mb3
       = link_to 'View all projects'.html_safe, projects_path, class: 'btn btn-primary bg-green'
