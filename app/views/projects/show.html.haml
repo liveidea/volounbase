@@ -4,7 +4,7 @@
     .col.col-3.px2
       - if @project.cover.url(:large)
         .img-wrap
-          = link_to "#{image_tag(cl_image_tag(@project.cover.url(:medium)))}<span class='typcn typcn-zoom-in-outline'><span>".html_safe, @project.cover.url(:large), class: "js-image-zoom hover-ico"
+          = link_to "#{image_tag(@project.cover.url(:medium))}<span class='typcn typcn-zoom-in-outline'><span>".html_safe, @project.cover.url(:large), class: "js-image-zoom hover-ico"
       - else
         %img{:alt => "", :src => @project.cover.url(:medium)}/
     .col.col-6.px2
@@ -27,7 +27,7 @@
           = @organizer.try(:first_name ) + ' ' + @organizer.try(:last_name)
         .col.col-12.px1
           %a{:href => "mailto: = @organizer.email"}
-            = @organizer.email          
+            = @organizer.email
       %br/
   = render 'projects/parts/galleries_list'
   = render 'projects/parts/events_list'
