@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  #before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:new, :list, :edit, :create, :update, :destroy]
   before_action :set_project, only: [:show, :edit, :update, :destroy]
 
   respond_to :html
