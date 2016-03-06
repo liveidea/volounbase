@@ -1,7 +1,7 @@
 class Project < ActiveRecord::Base
   def to_param
     "#{id}-#{title.parameterize}"
-  end  
+  end
   include Paperclip::Glue
   has_many :events, dependent: :destroy
   has_many :galleries, dependent: :destroy

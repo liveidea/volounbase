@@ -30,6 +30,10 @@ gem 'kaminari'
 
 gem "paperclip", "~> 4.3"
 
+gem 'cloudinary'
+
+gem 'aws-sdk', '~> 2'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

@@ -1,4 +1,4 @@
-class Photo < ActiveRecord::Base
+class Photo < ActiveRecord::Uploader::Base
   belongs_to :gallery
 
   include Paperclip::Glue
