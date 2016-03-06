@@ -38,11 +38,11 @@ class CandidatesController < ApplicationController
       end
 
       # Send mail # To volounteer
-      if get_status == 'accepted'
-        UserNotifier.accept_user_register_to_event(@candidate.user, @event.project).deliver_now
-      elsif get_status == "declined"
-        UserNotifier.decline_user_register_to_event(@candidate.user, @event.project).deliver_now
-      end
+      # if get_status == 'accepted'
+      #   UserNotifier.accept_user_register_to_event(@candidate.user, @event.project).deliver_now
+      # elsif get_status == "declined"
+      #   UserNotifier.decline_user_register_to_event(@candidate.user, @event.project).deliver_now
+      # end
     end
   end
 
