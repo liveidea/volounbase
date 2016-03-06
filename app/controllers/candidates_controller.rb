@@ -13,11 +13,11 @@ class CandidatesController < ApplicationController
     @candidate.save
 
     # To organizer
-    @organizer = @event.project.user
-    UserNotifier.new_user_register_to_event(@organizer, @event.project).deliver_now
+    # @organizer = @event.project.user
+    # UserNotifier.new_user_register_to_event(@organizer, @event.project).deliver_now
 
     # To volounteer
-    UserNotifier.register_to_event(@candidate.user, @event.project).deliver_now
+    # UserNotifier.register_to_event(@candidate.user, @event.project).deliver_now
     redirect_to(:back)
   end
 

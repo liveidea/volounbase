@@ -25,24 +25,25 @@
     - if this_list?("pending")
       "pending"    
 - @candidates.each do |candidate|
-  .bg-light-gray.clearfix.rounded.px2.py1
-    .col.col-3.px2
-      %small.gray.gray
-        Project Title:
-      %br/
-      = candidate.event.project.title
-    .col.col-3.px2
-      %small.gray.gray
-        Start date:
+  .my1
+    .bg-light-gray.clearfix.rounded.px2.py1
+      .col.col-3.px2
+        %small.gray.gray
+          Project Title:
         %br/
-      = candidate.event.start_date.strftime("%d.%m.%Y %H:%I")
-    .col.col-3.px2
-      %small.gray.gray
-        End date:
-        %br/
-      = candidate.event.end_date.strftime("%d.%m.%Y %H:%I")
-    .col-3.col
-      -if this_list?("pending") || this_list?("accepted")
-        .right.px2
-          %small
-            = link_to '<span class="typcn typcn-arrow-back"></span> Leave event'.html_safe, accept_trigger_event_candidate_path(candidate.event, candidate, status: "decline"), method: :put, class: 'btn btn-outline red js-remove', data: {confirm: "Are you sure?"}
+        = candidate.event.project.title
+      .col.col-3.px2
+        %small.gray.gray
+          Start date:
+          %br/
+        = candidate.event.start_date.strftime("%d.%m.%Y %H:%I")
+      .col.col-3.px2
+        %small.gray.gray
+          End date:
+          %br/
+        = candidate.event.end_date.strftime("%d.%m.%Y %H:%I")
+      .col-3.col
+        -if this_list?("pending") || this_list?("accepted")
+          .right.px2
+            %small
+              = link_to '<span class="typcn typcn-arrow-back"></span> Leave event'.html_safe, accept_trigger_event_candidate_path(candidate.event, candidate, status: "decline"), method: :put, class: 'btn btn-outline red js-remove', data: {confirm: "Are you sure?"}
